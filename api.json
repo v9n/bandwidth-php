@@ -178,6 +178,79 @@
         ],
         "method":"post"
       }
+    },
+
+    "numberInfo": {
+      "args": ["number"],
+      "show": {
+        "path": "/phoneNumbers/numberInfo/:number" 
+      }
+    },
+
+    "phoneNumbers": {
+      "fetch": {
+        "path": "/phoneNumbers"
+      },
+
+      "create": {
+        "path": "phoneNumbers",
+        "method": "post",
+        "params": [
+          { 
+            "name": "number",
+            "required": true
+          },
+          {
+            "name": "applicationId"
+          },
+          {
+            "name": "name"
+          },
+          {
+            "name": "fallbackNumber"
+          }
+        ]
+      },
+      
+      "showById": {
+        "path": "phoneNumbers/:number_id",
+        "params": [
+          {
+            "name": "number_id",
+            "required": true,
+            "url_use": true
+          }
+        ]
+      },
+      
+      "showByNumber": {
+        "path": "phoneNumbers/:number",
+        "params": [
+          {
+            "name": "number",
+            "required": true,
+            "url_use": true
+          }
+        ]
+      },
+
+      "update": {
+        "path": "phoneNumbers/:number_id",
+        "method": "post",
+        "params": [
+          {
+            "name": "number_id",
+            "required": true,
+            "url_use": true
+          }
+        ]
+      },
+
+      "destroy": {
+        "path": "phoneNumbers/:number_id",
+        "method": "delete"
+      }
     }
+
   }
 }
