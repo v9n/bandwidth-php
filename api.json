@@ -23,11 +23,12 @@
   },
   "class":{
     "account":{
+      "args": ["user_id"],
       "show":{
-        "path":"/account"
+        "path":"/users/:user_id/account"
       },
       "transactions":{
-        "path":"/account/transactions"
+        "path":"/users/:user_id/account/transactions"
       }
     },
     "availableNumbers":{
@@ -47,15 +48,16 @@
       }
     },
     "messages":{
+      "args": ["user_id"],
       "fetch":{
-        "path":"/messages"
+        "path":"/users/:user_id/messages"
       },
       "create":{
-        "path":"/messages",
+        "path":"/users/:user_id/messages",
         "method":"post"
       },
       "show":{
-        "path":"/messages/:id",
+        "path":"/users/:user_id/messages/:id",
         "params":[
           {
             "name":"id",
@@ -66,11 +68,12 @@
       }
     },
     "calls":{
+      "args": ["user_id"],
       "fetch":{
-        "path":"/calls"
+        "path":"/users/:user_id/calls"
       },
       "create":{
-        "path":"/calls",
+        "path":"/users/:user_id/calls",
         "method":"post",
         "params":[
           {
@@ -84,7 +87,7 @@
         ]
       },
       "show":{
-        "path":"/calls/:call_id",
+        "path":"/users/:user_id/calls/:call_id",
         "params":[
           {
             "name":"call_id",
@@ -94,7 +97,7 @@
         ]
       },
       "update":{
-        "path":"/calls/:call_id",
+        "path":"/users/:user_id/calls/:call_id",
         "method":"post",
         "params":[
           {
@@ -105,7 +108,7 @@
         ]
       },
       "audio":{
-        "path":"/calls/:call_id/audio",
+        "path":"/users/:user_id/calls/:call_id/audio",
         "method":"post",
         "params":[
           {
@@ -116,7 +119,7 @@
         ]
       },
       "dtmf":{
-        "path":"/calls/:call_id/dtmf",
+        "path":"/users/:user_id/calls/:call_id/dtmf",
         "method":"post",
         "params":[
           {
@@ -127,7 +130,7 @@
         ]
       },
       "recordings":{
-        "path":"/calls/:call_id/recordings",
+        "path":"/users/:user_id/calls/:call_id/recordings",
         "params":[
           {
             "name":"call_id",
@@ -137,7 +140,7 @@
         ]
       },
       "createGather":{
-        "path":"/calls/:call_id/gather",
+        "path":"/users/:user_id/calls/:call_id/gather",
         "method":"post",
         "params":[
           {
@@ -148,7 +151,7 @@
         ]
       },
       "gather":{
-        "path":"/calls/:call_id/gather/:gather_id",
+        "path":"/users/:user_id/calls/:call_id/gather/:gather_id",
         "params":[
           {
             "name":"call_id",
@@ -163,7 +166,7 @@
         ]
       },
       "updateGather":{
-        "path":"/calls/:call_id/gather/:gather_id",
+        "path":"/users/:user_id/calls/:call_id/gather/:gather_id",
         "params":[
           {
             "name":"call_id",
@@ -188,12 +191,13 @@
     },
 
     "phoneNumbers": {
+      "args": ["user_id"],
       "fetch": {
-        "path": "/phoneNumbers"
+        "path": "/users/:user_id/phoneNumbers"
       },
 
       "create": {
-        "path": "phoneNumbers",
+        "path": "/users/:user_id/phoneNumbers",
         "method": "post",
         "params": [
           { 
@@ -213,7 +217,7 @@
       },
       
       "showById": {
-        "path": "phoneNumbers/:number_id",
+        "path": "/users/:user_id/phoneNumbers/:number_id",
         "params": [
           {
             "name": "number_id",
@@ -224,7 +228,7 @@
       },
       
       "showByNumber": {
-        "path": "phoneNumbers/:number",
+        "path": "/users/:user_id/phoneNumbers/:number",
         "params": [
           {
             "name": "number",
@@ -235,7 +239,7 @@
       },
 
       "update": {
-        "path": "phoneNumbers/:number_id",
+        "path": "/users/:user_id/phoneNumbers/:number_id",
         "method": "post",
         "params": [
           {
@@ -247,7 +251,7 @@
       },
 
       "destroy": {
-        "path": "phoneNumbers/:number_id",
+        "path": "/users/:user_id/phoneNumbers/:number_id",
         "method": "delete"
       }
     }
