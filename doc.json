@@ -45,7 +45,13 @@
     },
     "show": {
       "title": "Read a message",
-      "desc": "Get information about a message that was sent or received"
+      "desc": "Get information about a message that was sent or received",
+      "params": {
+        "id": {
+          "desc": "message id",
+          "value": "111111"
+        }
+      }
     }
   },
   
@@ -62,40 +68,97 @@
     },
     "show": {
       "title": "Gets information about an active or completed call",
-      "desc": "Gets information about an active or completed call. No query parameters are supported"
+      "desc": "Gets information about an active or completed call. No query parameters are supported",
+      "params": {
+        "call_id": {
+          "desc": "call id",
+          "value": "111111"
+        }
+      }
+
     },
 
     "update": {
       "title": "Changes properties of an active phone call",
-      "desc": "Changes properties of an active phone call"
+      "desc": "Changes properties of an active phone call",
+      "params": {
+        "call_id": {
+          "desc": "call id",
+          "value": "111111"
+        }
+      }
     },
 
     "audio": {
       "title": "Play an audio or speak a sentence in a call",
-      "desc": "Play an audio or speak a sentence in a call"
+      "desc": "Play an audio or speak a sentence in a call",
+      "params": {
+        "call_id": {
+          "desc": "call id",
+          "value": "111111"
+        }
+      }
     },
 
     "dtmf": {
       "title": "Send DTMF",
-      "desc": "Send DTMF to a call"
+      "desc": "Send DTMF to a call",
+      "params": {
+        "call_id": {
+          "desc": "call id",
+          "value": "111111"
+        }
+      }
     },
 
     "recordings": {
       "title": "Retrieve all recordings related to the call",
-      "desc": "Retrieve all recordings related to the call"
+      "desc": "Retrieve all recordings related to the call",
+      "params": {
+        "call_id": {
+          "desc": "call id",
+          "value": "111111"
+        }
+      }
     },
 
     "createGather": {
       "title": "Gather the DTMF digits pressed",
-      "desc": "Gather the DTMF digits pressed by the user."
+      "desc": "Gather the DTMF digits pressed by the user.",
+      "params": {
+        "call_id": {
+          "desc": "call id",
+          "value": "111111"
+        }
+      }
     },
     "gather": {
       "title": "Get the gather DTMF parameters and results",
-      "desc": "Get the gather DTMF parameters and results"
+      "desc": "Get the gather DTMF parameters and results",
+      "params": {
+        "call_id": {
+          "desc": "call id",
+          "value": "111111"
+        },
+        "gather_id": {
+          "desc": "gather id",
+          "value": "222222"
+        }
+      }
     },
     "updateGather": {
       "title": "Update the gather DTMF (Stop Gather)",
-      "desc": "Update the gather DTMF (Stop Gather)"
+      "desc": "Update the gather DTMF (Stop Gather)",
+      "params": {
+        "call_id": {
+          "desc": "call id",
+          "value": "111111"
+        },
+        "gather_id": {
+          "desc": "gather id",
+          "value": "222222"
+        }
+      }
     }
 
   }

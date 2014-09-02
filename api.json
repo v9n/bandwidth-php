@@ -21,6 +21,7 @@
 	"error": {
 		"message": "error"
 	},
+
 	"class": {
 		"account": {
 			"show": {
@@ -92,7 +93,9 @@
         "params": [
           {
             "name": "call_id",
-            "required": true
+            "required": true,
+						"url_use": true
+
           }
         ]
       },
@@ -103,7 +106,9 @@
         "params": [
           {
             "name": "call_id",
-            "required": true
+            "required": true,
+						"url_use": true
+
           }
         ]
       },
@@ -114,7 +119,9 @@
         "params": [
           {
             "name": "call_id",
-            "required": true
+            "required": true,
+						"url_use": true
+
           }
         ]
       },
@@ -125,7 +132,9 @@
         "params": [
           {
             "name": "call_id",
-            "required": true
+            "required": true,
+						"url_use": true
+
           }
         ]
       },
@@ -135,7 +144,9 @@
         "params": [
           {
             "name": "call_id",
-            "required": true
+            "required": true,
+						"url_use": true
+
           }
         ]
       },
@@ -146,7 +157,9 @@
         "params": [
           {
             "name": "call_id",
-            "required": true
+            "required": true,
+						"url_use": true
+
           }
         ]
       },
@@ -156,11 +169,15 @@
         "params": [
           {
             "name": "call_id",
-            "required": true
+            "required": true,
+						"url_use": true
+
           },
           {
             "name": "gather_id",
-            "required": true
+            "required": true,
+						"url_use": true
+
           }
         ]
       },
@@ -170,11 +187,15 @@
         "params": [
           {
             "name": "call_id",
-            "required": true
+            "required": true,
+						"url_use": true
+
           },
           {
             "name": "gather_id",
-            "required": true
+            "required": true,
+						"url_use": true
+
           }
         ],
         "method": "post" 
@@ -182,4 +203,5 @@
       
     }
 	}
+
 }
