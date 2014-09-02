@@ -1,207 +1,183 @@
 {
-	"base": "https://api.catapult.inetwork.com",
-	"version": "v1",
-	"authorization": {
-		"need_auth": true,
-		"oauth": true
-	},
-	"request": {
-		"formats": {
-			"default": "form",
-			"form": true
-		}
-	},
-	"response": {
-		"formats": {
-			"default": "json",
-			"json": true
-		},
-		"suffix": true
-	},
-	"error": {
-		"message": "error"
-	},
-
-	"class": {
-		"account": {
-			"show": {
-				"path": "/account"
-			},
-			"transactions": {
-				"path": "/account/transactions"
-			}
-		},
-
-    "availableNumbers": {
-      "searchLocal": {
-        "path": "/availableNumbers/local"
+  "base":"https://api.catapult.inetwork.com",
+  "version":"v1",
+  "authorization":{
+    "need_auth":true,
+    "oauth":true
+  },
+  "request":{
+    "formats":{
+      "default":"form",
+      "form":true
+    }
+  },
+  "response":{
+    "formats":{
+      "default":"json",
+      "json":true
+    },
+    "suffix":true
+  },
+  "error":{
+    "message":"error"
+  },
+  "class":{
+    "account":{
+      "show":{
+        "path":"/account"
       },
-      "createLocal": {
-        "path": "/availableNumbers/local",
-        "method": "post"
-      },
-      "searchTollFree": {
-        "path": "/availableNumbers/tollFree"
-      },
-      "createTollFree": {
-        "path": "/availableNumbers/tollFree",
-        "method": "post"
+      "transactions":{
+        "path":"/account/transactions"
       }
     },
-
-    "messages": {
-      "fetch": {
-        "path": "/messages"
+    "availableNumbers":{
+      "searchLocal":{
+        "path":"/availableNumbers/local"
       },
-      "create": {
-        "path": "/messages",
-        "method": "post"
+      "createLocal":{
+        "path":"/availableNumbers/local",
+        "method":"post"
       },
-      "show": {
-        "path": "/messages/:id",
-        "params": [
-					{
-						"name": "id",
-						"required": true,
-						"url_use": true
-					}
-				]
+      "searchTollFree":{
+        "path":"/availableNumbers/tollFree"
+      },
+      "createTollFree":{
+        "path":"/availableNumbers/tollFree",
+        "method":"post"
       }
     },
-
-    "calls": {
-      "fetch": {
-        "path": "/calls"
+    "messages":{
+      "fetch":{
+        "path":"/messages"
       },
-      "create": {
-        "path": "/calls",
-        "method": "post",
+      "create":{
+        "path":"/messages",
+        "method":"post"
+      },
+      "show":{
+        "path":"/messages/:id",
         "params":[
           {
-            "name": "to",
-            "required": true
+            "name":"id",
+            "required":true,
+            "url_use":true
+          }
+        ]
+      }
+    },
+    "calls":{
+      "fetch":{
+        "path":"/calls"
+      },
+      "create":{
+        "path":"/calls",
+        "method":"post",
+        "params":[
+          {
+            "name":"to",
+            "required":true
           },
           {
-            "name": "from",
-            "required": true
+            "name":"from",
+            "required":true
           }
         ]
       },
-
-      "show": {
-        "path": "/calls/:call_id",
-        "params": [
+      "show":{
+        "path":"/calls/:call_id",
+        "params":[
           {
-            "name": "call_id",
-            "required": true,
-						"url_use": true
-
+            "name":"call_id",
+            "required":true,
+            "url_use":true
           }
         ]
       },
-
-      "update": {
-        "path": "/calls/:call_id",
-        "method": "post",
-        "params": [
+      "update":{
+        "path":"/calls/:call_id",
+        "method":"post",
+        "params":[
           {
-            "name": "call_id",
-            "required": true,
-						"url_use": true
-
+            "name":"call_id",
+            "required":true,
+            "url_use":true
           }
         ]
       },
-
-      "audio": {
-        "path": "/calls/:call_id/audio",
-        "method": "post",
-        "params": [
+      "audio":{
+        "path":"/calls/:call_id/audio",
+        "method":"post",
+        "params":[
           {
-            "name": "call_id",
-            "required": true,
-						"url_use": true
-
+            "name":"call_id",
+            "required":true,
+            "url_use":true
           }
         ]
       },
-
-      "dtmf": {
-        "path": "/calls/:call_id/dtmf",
-        "method": "post",
-        "params": [
+      "dtmf":{
+        "path":"/calls/:call_id/dtmf",
+        "method":"post",
+        "params":[
           {
-            "name": "call_id",
-            "required": true,
-						"url_use": true
-
+            "name":"call_id",
+            "required":true,
+            "url_use":true
           }
         ]
       },
-
-      "recordings": {
-        "path": "/calls/:call_id/recordings",
-        "params": [
+      "recordings":{
+        "path":"/calls/:call_id/recordings",
+        "params":[
           {
-            "name": "call_id",
-            "required": true,
-						"url_use": true
-
+            "name":"call_id",
+            "required":true,
+            "url_use":true
           }
         ]
       },
-
-      "createGather": {
-        "path": "/calls/:call_id/gather",
-        "method": "post",
-        "params": [
+      "createGather":{
+        "path":"/calls/:call_id/gather",
+        "method":"post",
+        "params":[
           {
-            "name": "call_id",
-            "required": true,
-						"url_use": true
-
+            "name":"call_id",
+            "required":true,
+            "url_use":true
           }
         ]
       },
-
-      "gather": {
-        "path": "/calls/:call_id/gather/:gather_id",
-        "params": [
+      "gather":{
+        "path":"/calls/:call_id/gather/:gather_id",
+        "params":[
           {
-            "name": "call_id",
-            "required": true,
-						"url_use": true
-
+            "name":"call_id",
+            "required":true,
+            "url_use":true
           },
           {
-            "name": "gather_id",
-            "required": true,
-						"url_use": true
-
+            "name":"gather_id",
+            "required":true,
+            "url_use":true
           }
         ]
       },
-      
-      "updateGather": {
-        "path": "/calls/:call_id/gather/:gather_id",
-        "params": [
+      "updateGather":{
+        "path":"/calls/:call_id/gather/:gather_id",
+        "params":[
           {
-            "name": "call_id",
-            "required": true,
-						"url_use": true
-
+            "name":"call_id",
+            "required":true,
+            "url_use":true
           },
           {
-            "name": "gather_id",
-            "required": true,
-						"url_use": true
-
+            "name":"gather_id",
+            "required":true,
+            "url_use":true
           }
         ],
-        "method": "post" 
+        "method":"post"
       }
-      
     }
-	}
-
+  }
 }

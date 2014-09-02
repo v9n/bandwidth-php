@@ -64,7 +64,17 @@
     },
     "create": {
       "title": "Makes a phone call.",
-      "desc": "Makes a phone call."
+      "desc": "Makes a phone call.",
+      "params": {
+        "from": {
+          "desc": "number which we call from",
+          "value": "4081112244"
+        },
+        "to": {
+          "desc": "number which we call to",
+          "value": "6501112222"
+        }
+      }
     },
     "show": {
       "title": "Gets information about an active or completed call",
