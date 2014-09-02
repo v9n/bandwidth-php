@@ -1,0 +1,150 @@
+{
+	"base": "https://api.catapult.inetwork.com",
+	"version": "v1",
+	"authorization": {
+		"need_auth": true,
+		"oauth": true
+	},
+	"request": {
+		"formats": {
+			"default": "form",
+			"form": true
+		}
+	},
+	"response": {
+		"formats": {
+			"default": "json",
+			"json": true
+		},
+		"suffix": true
+	},
+	"error": {
+		"message": "error"
+	},
+	"class": {
+		"account": {
+			"show": {
+				"path": "/account"
+			},
+			"transactions": {
+				"path": "/account/transactions"
+			}
+		},
+    "availableNumbers": {
+      "searchLocal": {
+        "path": "/availableNumbers/local"
+      },
+      "createLocal": {
+        "path": "/availableNumbers/local",
+        "method": "post"
+      },
+      "searchTollFree": {
+        "path": "/availableNumbers/tollFree"
+      },
+      "createTollFree": {
+        "path": "/availableNumbers/tollFree",
+        "method": "post"
+      }
+    },
+
+    "messages": {
+      "fetch": {
+        "path": "/messages"
+      },
+      "create": {
+        "path": "/messages",
+        "method": "post"
+      },
+      "show": {
+        "path": "/messages/:id"
+      }
+    },
+		"link": {
+			"shares": {
+				"path": "/link/shares",
+				"params": [
+					{
+						"name": "url",
+						"required": true
+					}
+				]
+			}
+		},
+		"profile": {
+			"args": ["id"],
+			"show": {
+				"path": "/profiles/:id"
+			},
+			"pending": {
+				"path": "/profiles/:id/updates/pending",
+				"paginate": true
+			},
+			"sent": {
+				"path": "/profiles/:id/updates/sent",
+				"paginate": true
+			},
+			"reorder": {
+				"path": "/profiles/:id/updates/reorder",
+				"method": "post",
+				"params": [
+					{
+						"name": "order",
+						"required": true
+					}
+				]
+			},
+			"shuffle": {
+				"path": "/profiles/:id/updates/shuffle",
+				"method": "post"
+			}
+		},
+		"schedule": {
+			"args": ["id"],
+			"list": {
+				"path": "/profiles/:id/schedules"
+			},
+			"update": {
+				"path": "/profiles/:id/schedules/update",
+				"method": "post",
+				"params": [
+					{
+						"name": "schedules",
+						"required": true
+					}
+				]
+			}
+		},
+		"update": {
+			"args": ["id"],
+			"show": {
+				"path": "/updates/:id"
+			},
+			"interactions": {
+				"path": "/updates/:id/interactions",
+				"paginate": true
+			},
+			"update": {
+				"path": "/updates/:id/update",
+				"method": "post",
+				"params": [
+					{
+						"name": "text",
+						"required": true
+					}
+				]
+			},
+			"share": {
+				"path": "/updates/:id/share",
+				"method": "post"
+			},
+			"destroy": {
+				"path": "/updates/:id/destroy",
+				"method": "post"
+			},
+			"top": {
+				"path": "/updates/:id/move_to_top",
+				"method": "post"
+			}
+		}
+	}
+}
