@@ -30,6 +30,7 @@
 				"path": "/account/transactions"
 			}
 		},
+
     "availableNumbers": {
       "searchLocal": {
         "path": "/availableNumbers/local"
@@ -56,95 +57,129 @@
         "method": "post"
       },
       "show": {
-        "path": "/messages/:id"
+        "path": "/messages/:id",
+        "params": [
+					{
+						"name": "id",
+						"required": true,
+						"url_use": true
+					}
+				]
       }
     },
-		"link": {
-			"shares": {
-				"path": "/link/shares",
-				"params": [
-					{
-						"name": "url",
-						"required": true
-					}
-				]
-			}
-		},
-		"profile": {
-			"args": ["id"],
-			"show": {
-				"path": "/profiles/:id"
-			},
-			"pending": {
-				"path": "/profiles/:id/updates/pending",
-				"paginate": true
-			},
-			"sent": {
-				"path": "/profiles/:id/updates/sent",
-				"paginate": true
-			},
-			"reorder": {
-				"path": "/profiles/:id/updates/reorder",
-				"method": "post",
-				"params": [
-					{
-						"name": "order",
-						"required": true
-					}
-				]
-			},
-			"shuffle": {
-				"path": "/profiles/:id/updates/shuffle",
-				"method": "post"
-			}
-		},
-		"schedule": {
-			"args": ["id"],
-			"list": {
-				"path": "/profiles/:id/schedules"
-			},
-			"update": {
-				"path": "/profiles/:id/schedules/update",
-				"method": "post",
-				"params": [
-					{
-						"name": "schedules",
-						"required": true
-					}
-				]
-			}
-		},
-		"update": {
-			"args": ["id"],
-			"show": {
-				"path": "/updates/:id"
-			},
-			"interactions": {
-				"path": "/updates/:id/interactions",
-				"paginate": true
-			},
-			"update": {
-				"path": "/updates/:id/update",
-				"method": "post",
-				"params": [
-					{
-						"name": "text",
-						"required": true
-					}
-				]
-			},
-			"share": {
-				"path": "/updates/:id/share",
-				"method": "post"
-			},
-			"destroy": {
-				"path": "/updates/:id/destroy",
-				"method": "post"
-			},
-			"top": {
-				"path": "/updates/:id/move_to_top",
-				"method": "post"
-			}
-		}
+
+    "calls": {
+      "fetch": {
+        "path": "/calls"
+      },
+      "create": {
+        "path": "/calls",
+        "method": "post",
+        "params":[
+          {
+            "name": "to",
+            "required": true
+          },
+          {
+            "name": "from",
+            "required": true
+          }
+        ]
+      },
+
+      "show": {
+        "path": "/calls/:call_id",
+        "params": [
+          {
+            "name": "call_id",
+            "required": true
+          }
+        ]
+      },
+
+      "update": {
+        "path": "/calls/:call_id",
+        "method": "post",
+        "params": [
+          {
+            "name": "call_id",
+            "required": true
+          }
+        ]
+      },
+
+      "audio": {
+        "path": "/calls/:call_id/audio",
+        "method": "post",
+        "params": [
+          {
+            "name": "call_id",
+            "required": true
+          }
+        ]
+      },
+
+      "dtmf": {
+        "path": "/calls/:call_id/dtmf",
+        "method": "post",
+        "params": [
+          {
+            "name": "call_id",
+            "required": true
+          }
+        ]
+      },
+
+      "recordings": {
+        "path": "/calls/:call_id/recordings",
+        "params": [
+          {
+            "name": "call_id",
+            "required": true
+          }
+        ]
+      },
+
+      "createGather": {
+        "path": "/calls/:call_id/gather",
+        "method": "post",
+        "params": [
+          {
+            "name": "call_id",
+            "required": true
+          }
+        ]
+      },
+
+      "gather": {
+        "path": "/calls/:call_id/gather/:gather_id",
+        "params": [
+          {
+            "name": "call_id",
+            "required": true
+          },
+          {
+            "name": "gather_id",
+            "required": true
+          }
+        ]
+      },
+      
+      "updateGather": {
+        "path": "/calls/:call_id/gather/:gather_id",
+        "params": [
+          {
+            "name": "call_id",
+            "required": true
+          },
+          {
+            "name": "gather_id",
+            "required": true
+          }
+        ],
+        "method": "post" 
+      }
+      
+    }
 	}
 }

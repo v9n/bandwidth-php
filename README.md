@@ -1,7 +1,11 @@
 bandwidth-php
 =============
 
-API client for bandwidth. Generate with https://github.com/pksunkara/alpaca
+API client for bandwidth.com. Generate with https://github.com/pksunkara/alpaca
+
+# API Document
+
+[https://catapult.inetwork.com/pages/home.jsf](https://catapult.inetwork.com/pages/home.jsf)
 
 # How to use
 
