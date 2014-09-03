@@ -34,11 +34,61 @@
     },
     "availableNumbers":{
       "searchLocal":{
-        "path":"/availableNumbers/local"
+        "path":"/availableNumbers/local",
+        "params": [
+          {
+            "name": "city"
+          },
+          {
+            "name": "state"
+          },
+          {
+            "name": "zip"
+          },
+          {
+            "name": "areaCode"
+          },
+          {
+            "name": "localNumber"
+          },
+          {
+            "name": "inLocalCallingArea"
+          },
+          {
+            "name": "quantity"
+          },
+          {
+            "name": "pattern"
+          }
+        ]
       },
       "createLocal":{
         "path":"/availableNumbers/local",
-        "method":"post"
+        "method":"post",
+        "params": [
+          {
+            "name": "city"
+          },
+          {
+            "name": "state"
+          },
+          {
+            "name": "zip"
+          },
+          {
+            "name": "areaCode"
+          },
+          {
+            "name": "localNumber"
+          },
+          {
+            "name": "inLocalCallingArea"
+          },
+          {
+            "name": "quantity"
+          }
+        ]
+
       },
       "searchTollFree":{
         "path":"/availableNumbers/tollFree"
