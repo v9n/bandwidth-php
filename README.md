@@ -124,6 +124,15 @@ $body = array('user' => 'pksunkara');
 // >>> 'user=pksunkara'
 ```
 
+##### JSON request
+
+When the value is set to __json__, JSON encode the body.
+
+```php
+$body = array('user' => 'pksunkara');
+// >>> '{"user": "pksunkara"}'
+```
+
 ### account information api
 
 Retrieve current balance, transaction list, account type and all elements related to your platform account.
@@ -250,6 +259,27 @@ The following arguments are required:
 $calls = $client->calls("u-account_id_in_bandwidth");
 ```
 
+##### Gets a list of active and historic calls you made or received (GET /users/:user_id/calls)
+
+Gets a list of active and historic calls you made or received
+
+```php
+$response = $calls->fetch($options);
+```
+
+##### Makes a phone call. (POST /users/:user_id/calls)
+
+Makes a phone call.
+
+The following arguments are required:
+
+ * __to__: number which we call to
+ * __from__: number which we call from
+
+```php
+$response = $calls->create("4081112244", "6501112222", $options);
+```
+
 ##### Gets information about an active or completed call (GET /users/:user_id/calls/:call_id)
 
 Gets information about an active or completed call. No query parameters are supported
@@ -272,18 +302,6 @@ The following arguments are required:
 
 ```php
 $response = $calls->update("111111", $options);
-```
-
-##### Play an audio or speak a sentence in a call (POST /users/:user_id/calls/:call_id/audio)
-
-Play an audio or speak a sentence in a call
-
-The following arguments are required:
-
- * __call_id__: call id
-
-```php
-$response = $calls->audio("111111", $options);
 ```
 
 ##### Send DTMF (POST /users/:user_id/calls/:call_id/dtmf)
@@ -310,6 +328,19 @@ The following arguments are required:
 $response = $calls->recordings("111111", $options);
 ```
 
+##### Get the gather DTMF parameters and results (GET /users/:user_id/calls/:call_id/gather/:gather_id)
+
+Get the gather DTMF parameters and results
+
+The following arguments are required:
+
+ * __call_id__: call id
+ * __gather_id__: gather id
+
+```php
+$response = $calls->gather("111111", "222222", $options);
+```
+
 ##### Update the gather DTMF (Stop Gather) (POST /users/:user_id/calls/:call_id/gather/:gather_id)
 
 Update the gather DTMF (Stop Gather)
@@ -323,25 +354,16 @@ The following arguments are required:
 $response = $calls->updateGather("111111", "222222", $options);
 ```
 
-##### Gets a list of active and historic calls you made or received (GET /users/:user_id/calls)
+##### Play an audio or speak a sentence in a call (POST /users/:user_id/calls/:call_id/audio)
 
-Gets a list of active and historic calls you made or received
-
-```php
-$response = $calls->fetch($options);
-```
-
-##### Makes a phone call. (POST /users/:user_id/calls)
-
-Makes a phone call.
+Play an audio or speak a sentence in a call
 
 The following arguments are required:
 
- * __to__: number which we call to
- * __from__: number which we call from
+ * __call_id__: call id
 
 ```php
-$response = $calls->create("4081112244", "6501112222", $options);
+$response = $calls->audio("111111", $options);
 ```
 
 ##### Gather the DTMF digits pressed (POST /users/:user_id/calls/:call_id/gather)
@@ -354,19 +376,6 @@ The following arguments are required:
 
 ```php
 $response = $calls->createGather("111111", $options);
-```
-
-##### Get the gather DTMF parameters and results (GET /users/:user_id/calls/:call_id/gather/:gather_id)
-
-Get the gather DTMF parameters and results
-
-The following arguments are required:
-
- * __call_id__: call id
- * __gather_id__: gather id
-
-```php
-$response = $calls->gather("111111", "222222", $options);
 ```
 
 ### This resource provides a CNAM number info api
