@@ -104,12 +104,14 @@ class PhoneNumbers
      * emoves a number from your account so you can no longer make or receive calls, or send or receive messages with it. When you remove a number from your account, it will not immediately become available for re-use, so be careful.
      *
      * '/users/:user_id/phoneNumbers/:number_id' DELETE
+     *
+     * @param $number_id id of phone number in twilio system. The ID of a number can be found by showByNumber
      */
-    public function destroy(array $options = array())
+    public function destroy($number_id, array $options = array())
     {
         $body = (isset($options['body']) ? $options['body'] : array());
 
-        $response = $this->client->delete('/users/'.rawurlencode($this->user_id).'/phoneNumbers/:number_id', $body, $options);
+        $response = $this->client->delete('/users/'.rawurlencode($this->user_id).'/phoneNumbers/'.rawurlencode($number_id).'', $body, $options);
 
         return $response;
     }

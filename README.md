@@ -164,16 +164,22 @@ $availableNumbers = $client->availableNumbers("u-account_id_in_bandwidth");
 
 Search and available local number that we can buy
 
+The following arguments are required:
+
+
 ```php
-$response = $availableNumbers->searchLocal($options);
+$response = $availableNumbers->searchLocal("San Jose", "CA", 95111, 408, "4083", true, 10, "*2%3F9", $options);
 ```
 
 ##### Buy a local number (POST /availableNumbers/local)
 
 Search and order available local numbers
 
+The following arguments are required:
+
+
 ```php
-$response = $availableNumbers->createLocal($options);
+$response = $availableNumbers->createLocal("San Jose", "CA", 95111, 408, "4083", true, 10, $options);
 ```
 
 ##### Search for available toll free numbers (GET /availableNumbers/tollFree)
@@ -256,6 +262,18 @@ The following arguments are required:
 $response = $calls->show("111111", $options);
 ```
 
+##### Changes properties of an active phone call (POST /users/:user_id/calls/:call_id)
+
+Changes properties of an active phone call
+
+The following arguments are required:
+
+ * __call_id__: call id
+
+```php
+$response = $calls->update("111111", $options);
+```
+
 ##### Play an audio or speak a sentence in a call (POST /users/:user_id/calls/:call_id/audio)
 
 Play an audio or speak a sentence in a call
@@ -268,9 +286,21 @@ The following arguments are required:
 $response = $calls->audio("111111", $options);
 ```
 
-##### Get the gather DTMF parameters and results (GET /users/:user_id/calls/:call_id/gather/:gather_id)
+##### Retrieve all recordings related to the call (GET /users/:user_id/calls/:call_id/recordings)
 
-Get the gather DTMF parameters and results
+Retrieve all recordings related to the call
+
+The following arguments are required:
+
+ * __call_id__: call id
+
+```php
+$response = $calls->recordings("111111", $options);
+```
+
+##### Update the gather DTMF (Stop Gather) (POST /users/:user_id/calls/:call_id/gather/:gather_id)
+
+Update the gather DTMF (Stop Gather)
 
 The following arguments are required:
 
@@ -278,7 +308,7 @@ The following arguments are required:
  * __gather_id__: gather id
 
 ```php
-$response = $calls->gather("111111", "222222", $options);
+$response = $calls->updateGather("111111", "222222", $options);
 ```
 
 ##### Gets a list of active and historic calls you made or received (GET /users/:user_id/calls)
@@ -302,18 +332,6 @@ The following arguments are required:
 $response = $calls->create("4081112244", "6501112222", $options);
 ```
 
-##### Changes properties of an active phone call (POST /users/:user_id/calls/:call_id)
-
-Changes properties of an active phone call
-
-The following arguments are required:
-
- * __call_id__: call id
-
-```php
-$response = $calls->update("111111", $options);
-```
-
 ##### Send DTMF (POST /users/:user_id/calls/:call_id/dtmf)
 
 Send DTMF to a call
@@ -324,18 +342,6 @@ The following arguments are required:
 
 ```php
 $response = $calls->dtmf("111111", $options);
-```
-
-##### Retrieve all recordings related to the call (GET /users/:user_id/calls/:call_id/recordings)
-
-Retrieve all recordings related to the call
-
-The following arguments are required:
-
- * __call_id__: call id
-
-```php
-$response = $calls->recordings("111111", $options);
 ```
 
 ##### Gather the DTMF digits pressed (POST /users/:user_id/calls/:call_id/gather)
@@ -350,9 +356,9 @@ The following arguments are required:
 $response = $calls->createGather("111111", $options);
 ```
 
-##### Update the gather DTMF (Stop Gather) (POST /users/:user_id/calls/:call_id/gather/:gather_id)
+##### Get the gather DTMF parameters and results (GET /users/:user_id/calls/:call_id/gather/:gather_id)
 
-Update the gather DTMF (Stop Gather)
+Get the gather DTMF parameters and results
 
 The following arguments are required:
 
@@ -360,7 +366,7 @@ The following arguments are required:
  * __gather_id__: gather id
 
 ```php
-$response = $calls->updateGather("111111", "222222", $options);
+$response = $calls->gather("111111", "222222", $options);
 ```
 
 ### This resource provides a CNAM number info api
@@ -455,8 +461,12 @@ $response = $phoneNumbers->update("n-111111", $options);
 
 emoves a number from your account so you can no longer make or receive calls, or send or receive messages with it. When you remove a number from your account, it will not immediately become available for re-use, so be careful.
 
+The following arguments are required:
+
+ * __number_id__: id of phone number in twilio system. The ID of a number can be found by showByNumber
+
 ```php
-$response = $phoneNumbers->destroy($options);
+$response = $phoneNumbers->destroy("n-111111", $options);
 ```
 
 ## Contributors

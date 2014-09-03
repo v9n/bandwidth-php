@@ -22,6 +22,7 @@ class AvailableNumbers
      * Search and available local number that we can buy
      *
      * '/availableNumbers/local' GET
+     *
      */
     public function searchLocal(array $options = array())
     {
@@ -36,6 +37,7 @@ class AvailableNumbers
      * Search and order available local numbers
      *
      * '/availableNumbers/local' POST
+     *
      */
     public function createLocal(array $options = array())
     {
