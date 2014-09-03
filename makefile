@@ -5,3 +5,8 @@ gen:
 	
 clean:
 		rm -rf python node php ruby
+
+build:
+	git checkout master
+	cp -rf php/* ./
+
