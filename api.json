@@ -3,7 +3,8 @@
   "version":"v1",
   "authorization":{
     "need_auth":true,
-    "oauth":true
+    "basic" : true, 
+    "header": true
   },
   "request":{
     "formats":{
@@ -16,7 +17,7 @@
       "default":"json",
       "json":true
     },
-    "suffix":true
+    "suffix":false
   },
   "error":{
     "message":"error"
