@@ -16,6 +16,7 @@ build:
 	git checkout master
 	cp -rf $(OUT_DIR)/php/* .
 	rm -rf $(OUT_DIR)
+	git add .
 	git commit -m "Deploy new package generate on $(shell date)"
 	git push origin master
 	git checkout alpaca
