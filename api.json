@@ -8,8 +8,9 @@
   },
   "request":{
     "formats":{
-      "default":"form",
-      "form":true
+      "default":"json",
+      "form":true,
+      "json": true
     }
   },
   "response":{
