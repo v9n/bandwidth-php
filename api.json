@@ -253,7 +253,14 @@
 
       "destroy": {
         "path": "/users/:user_id/phoneNumbers/:number_id",
-        "method": "delete"
+        "method": "delete",
+        "params": [
+          {
+            "name": "number_id",
+            "required": true,
+            "url_use": true
+          }
+        ]
       }
     }
 
