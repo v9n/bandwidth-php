@@ -34,17 +34,67 @@
     },
     "availableNumbers":{
       "searchLocal":{
-        "path":"/availableNumbers/local"
-      },
-      "createLocal":{
         "path":"/availableNumbers/local",
-        "method":"post"
+        "params": [
+          {
+            "name": "city"
+          },
+          {
+            "name": "state"
+          },
+          {
+            "name": "zip"
+          },
+          {
+            "name": "areaCode"
+          },
+          {
+            "name": "localNumber"
+          },
+          {
+            "name": "inLocalCallingArea"
+          },
+          {
+            "name": "quantity"
+          },
+          {
+            "name": "pattern"
+          }
+        ]
+        
       },
-      "searchTollFree":{
-        "path":"/availableNumbers/tollFree"
+      "createlocal":{
+        "path":"/availablenumbers/local",
+        "method":"post",
+        "params": [
+          {
+            "name": "city"
+          },
+          {
+            "name": "state"
+          },
+          {
+            "name": "zip"
+          },
+          {
+            "name": "areaCode"
+          },
+          {
+            "name": "localNumber"
+          },
+          {
+            "name": "inLocalCallingArea"
+          },
+          {
+            "name": "quantity"
+          }
+        ]
       },
-      "createTollFree":{
-        "path":"/availableNumbers/tollFree",
+      "searchtollfree":{
+        "path":"/availablenumbers/tollfree"
+      },
+      "createtollfree":{
+        "path":"/availablenumbers/tollfree",
         "method":"post"
       }
     },
@@ -140,7 +190,7 @@
           }
         ]
       },
-      "createGather":{
+      "creategather":{
         "path":"/users/:user_id/calls/:call_id/gather",
         "method":"post",
         "params":[
@@ -166,7 +216,7 @@
           }
         ]
       },
-      "updateGather":{
+      "updategather":{
         "path":"/users/:user_id/calls/:call_id/gather/:gather_id",
         "params":[
           {
@@ -184,21 +234,21 @@
       }
     },
 
-    "numberInfo": {
+    "numberinfo": {
       "args": ["number"],
       "show": {
-        "path": "/phoneNumbers/numberInfo/:number" 
+        "path": "/phonenumbers/numberinfo/:number" 
       }
     },
 
-    "phoneNumbers": {
+    "phonenumbers": {
       "args": ["user_id"],
       "fetch": {
-        "path": "/users/:user_id/phoneNumbers"
+        "path": "/users/:user_id/phonenumbers"
       },
 
       "create": {
-        "path": "/users/:user_id/phoneNumbers",
+        "path": "/users/:user_id/phonenumbers",
         "method": "post",
         "params": [
           { 
@@ -206,19 +256,19 @@
             "required": true
           },
           {
-            "name": "applicationId"
+            "name": "applicationid"
           },
           {
             "name": "name"
           },
           {
-            "name": "fallbackNumber"
+            "name": "fallbacknumber"
           }
         ]
       },
       
-      "showById": {
-        "path": "/users/:user_id/phoneNumbers/:number_id",
+      "showbyid": {
+        "path": "/users/:user_id/phonenumbers/:number_id",
         "params": [
           {
             "name": "number_id",
@@ -228,8 +278,8 @@
         ]
       },
       
-      "showByNumber": {
-        "path": "/users/:user_id/phoneNumbers/:number",
+      "showbynumber": {
+        "path": "/users/:user_id/phonenumbers/:number",
         "params": [
           {
             "name": "number",
@@ -240,7 +290,7 @@
       },
 
       "update": {
-        "path": "/users/:user_id/phoneNumbers/:number_id",
+        "path": "/users/:user_id/phonenumbers/:number_id",
         "method": "post",
         "params": [
           {
@@ -252,7 +302,7 @@
       },
 
       "destroy": {
-        "path": "/users/:user_id/phoneNumbers/:number_id",
+        "path": "/users/:user_id/phonenumbers/:number_id",
         "method": "delete",
         "params": [
           {

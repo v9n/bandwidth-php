@@ -28,11 +28,77 @@
     "desc": "The Available Numbers resource lets you search for numbers that are available for use with your application.",
     "searchLocal": {
       "title": "Search an available local number",
-      "desc": "Search and available local number that we can buy"
+      "desc": "Search and available local number that we can buy",
+      "params": {
+        "city": {
+          "desc": "A city name",
+          "value": "San Jose"
+        },
+        "state": {
+          "desc": "A two-letter US state abbreviation ('CA' for California)",
+          "value": "CA"
+        },
+        "zip": {
+          "desc": "A 5-digit US ZIP code",
+          "value": 95111
+        },
+        "areaCode": {
+          "desc": "A 3-digit telephone area code",
+          "value": 408
+        },
+        "localNumber": {
+          "desc": "It is defined as the first digits of a telephone number inside an area code for filtering the results. It must contain from 3 to 4 digits",
+          "value": "4083"
+        },
+        "inLocalCallingArea": {
+          "desc": "Boolean value to indicate that the search for available numbers must consider overlayed areas. Only applied for localNumber searching",
+          "value": true
+        },
+        "quantity": {
+          "desc": "The maximum number of numbers to return (default 10, maximum 5000)",
+          "value": 10
+        },
+        "pattern": {
+          "desc": "A number pattern that may include letters, digits, and the following wildcard characters: ? : matches any single digit. * : matches zero or more digits.Don't forget to encode wildcard characters in the requested URL.",
+          "value": "*2%3F9"
+        }
+
+
+      }
     },
     "createLocal": {
       "title": "Buy a local number",
-      "desc": "Search and order available local numbers"
+      "desc": "Search and order available local numbers",
+      "params": {
+        "city": {
+          "desc": "A city name",
+          "value": "San Jose"
+        },
+        "state": {
+          "desc": "A two-letter US state abbreviation ('CA' for California)",
+          "value": "CA"
+        },
+        "zip": {
+          "desc": "A 5-digit US ZIP code",
+          "value": 95111
+        },
+        "areaCode": {
+          "desc": "A 3-digit telephone area code",
+          "value": 408
+        },
+        "localNumber": {
+          "desc": "It is defined as the first digits of a telephone number inside an area code for filtering the results. It must contain from 3 to 4 digits",
+          "value": "4083"
+        },
+        "inLocalCallingArea": {
+          "desc": "Boolean value to indicate that the search for available numbers must consider overlayed areas. Only applied for localNumber searching",
+          "value": true
+        },
+        "quantity": {
+          "desc": "The maximum number of numbers to return (default 10, maximum 5000)",
+          "value": 10
+        }
+      }
     },
 
     "searchTollFree": {
