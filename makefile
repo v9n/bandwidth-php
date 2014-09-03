@@ -1,7 +1,12 @@
-all: gen
+VERSION = 0.2.0
+SOURCE_DIR = $(pwd)
 
-gen: 
-		alpaca --no-python --no-node --no-ruby .
+all: clean gen
+
+gen:
+		mkdir /tmp/bandwidth-api-kurei
+		cd /tmp/bandwidth-api-kurei
+		alpaca --no-python --no-node --no-ruby $(SOURCE_DIR)
 	
 clean:
 		rm -rf python node php ruby
