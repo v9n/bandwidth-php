@@ -62,8 +62,6 @@
           "desc": "A number pattern that may include letters, digits, and the following wildcard characters: ? : matches any single digit. * : matches zero or more digits.Don't forget to encode wildcard characters in the requested URL.",
           "value": "*2%3F9"
         }
-
-
       }
     },
     "createLocal": {
