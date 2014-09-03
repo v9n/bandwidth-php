@@ -1,6 +1,6 @@
 VERSION = 0.2.0
 SOURCE_DIR = $(shell pwd)
-OUT_DIR = "/tmp/bandwidth-api-kurei"
+OUT_DIR=/tmp/bandwidth-api-kurei
 
 all: clean gen
 
@@ -14,6 +14,6 @@ clean:
 
 build:
 	git checkout master
-	cp -rf "$(OUT_DIR)/php/*" .
+	cp -rf $(OUT_DIR)/php/* .
 	rm -rf $(OUT_DIR)
 
