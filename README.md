@@ -244,12 +244,62 @@ The following arguments are required:
 $calls = $client->calls("u-account_id_in_bandwidth");
 ```
 
+##### Gets information about an active or completed call (GET /users/:user_id/calls/:call_id)
+
+Gets information about an active or completed call. No query parameters are supported
+
+The following arguments are required:
+
+ * __call_id__: call id
+
+```php
+$response = $calls->show("111111", $options);
+```
+
+##### Play an audio or speak a sentence in a call (POST /users/:user_id/calls/:call_id/audio)
+
+Play an audio or speak a sentence in a call
+
+The following arguments are required:
+
+ * __call_id__: call id
+
+```php
+$response = $calls->audio("111111", $options);
+```
+
+##### Get the gather DTMF parameters and results (GET /users/:user_id/calls/:call_id/gather/:gather_id)
+
+Get the gather DTMF parameters and results
+
+The following arguments are required:
+
+ * __call_id__: call id
+ * __gather_id__: gather id
+
+```php
+$response = $calls->gather("111111", "222222", $options);
+```
+
 ##### Gets a list of active and historic calls you made or received (GET /users/:user_id/calls)
 
 Gets a list of active and historic calls you made or received
 
 ```php
 $response = $calls->fetch($options);
+```
+
+##### Makes a phone call. (POST /users/:user_id/calls)
+
+Makes a phone call.
+
+The following arguments are required:
+
+ * __to__: number which we call to
+ * __from__: number which we call from
+
+```php
+$response = $calls->create("4081112244", "6501112222", $options);
 ```
 
 ##### Changes properties of an active phone call (POST /users/:user_id/calls/:call_id)
@@ -286,56 +336,6 @@ The following arguments are required:
 
 ```php
 $response = $calls->recordings("111111", $options);
-```
-
-##### Get the gather DTMF parameters and results (GET /users/:user_id/calls/:call_id/gather/:gather_id)
-
-Get the gather DTMF parameters and results
-
-The following arguments are required:
-
- * __call_id__: call id
- * __gather_id__: gather id
-
-```php
-$response = $calls->gather("111111", "222222", $options);
-```
-
-##### Makes a phone call. (POST /users/:user_id/calls)
-
-Makes a phone call.
-
-The following arguments are required:
-
- * __to__: number which we call to
- * __from__: number which we call from
-
-```php
-$response = $calls->create("4081112244", "6501112222", $options);
-```
-
-##### Gets information about an active or completed call (GET /users/:user_id/calls/:call_id)
-
-Gets information about an active or completed call. No query parameters are supported
-
-The following arguments are required:
-
- * __call_id__: call id
-
-```php
-$response = $calls->show("111111", $options);
-```
-
-##### Play an audio or speak a sentence in a call (POST /users/:user_id/calls/:call_id/audio)
-
-Play an audio or speak a sentence in a call
-
-The following arguments are required:
-
- * __call_id__: call id
-
-```php
-$response = $calls->audio("111111", $options);
 ```
 
 ##### Gather the DTMF digits pressed (POST /users/:user_id/calls/:call_id/gather)
