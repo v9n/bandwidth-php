@@ -1,0 +1,27 @@
+{
+	"name": "kureikain/bandwidth-alpaca",
+	"version": "0.1.0",
+	"description": "Bandwidth API library client for PHP",
+	"homepage": "https://bandwidth.com",
+	"authors": [
+		{
+			"name": "kureikain",
+			"email": "kurei@axcoto.com",
+			"homepage": "http://github.com/kureikain"
+		}
+	],
+	"keywords": ["alpaca", "bandwidth", "api", "client", "library"],
+	"autoload": {
+		"psr-0": {
+			"Bandwidth\\": "lib/"
+		}
+	},
+	"require": {
+		"ext-json": "*",
+		"guzzle/guzzle": "3.7.*"
+	},
+	"support": {
+		"issues": "https://github.com/kureikain/bandwidth-php/issues"
+	},
+	"license": "MIT"
+}
