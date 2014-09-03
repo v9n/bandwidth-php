@@ -259,14 +259,6 @@ The following arguments are required:
 $calls = $client->calls("u-account_id_in_bandwidth");
 ```
 
-##### Gets a list of active and historic calls you made or received (GET /users/:user_id/calls)
-
-Gets a list of active and historic calls you made or received
-
-```php
-$response = $calls->fetch($options);
-```
-
 ##### Makes a phone call. (POST /users/:user_id/calls)
 
 Makes a phone call.
@@ -328,30 +320,12 @@ The following arguments are required:
 $response = $calls->recordings("111111", $options);
 ```
 
-##### Get the gather DTMF parameters and results (GET /users/:user_id/calls/:call_id/gather/:gather_id)
+##### Gets a list of active and historic calls you made or received (GET /users/:user_id/calls)
 
-Get the gather DTMF parameters and results
-
-The following arguments are required:
-
- * __call_id__: call id
- * __gather_id__: gather id
+Gets a list of active and historic calls you made or received
 
 ```php
-$response = $calls->gather("111111", "222222", $options);
-```
-
-##### Update the gather DTMF (Stop Gather) (POST /users/:user_id/calls/:call_id/gather/:gather_id)
-
-Update the gather DTMF (Stop Gather)
-
-The following arguments are required:
-
- * __call_id__: call id
- * __gather_id__: gather id
-
-```php
-$response = $calls->updateGather("111111", "222222", $options);
+$response = $calls->fetch($options);
 ```
 
 ##### Play an audio or speak a sentence in a call (POST /users/:user_id/calls/:call_id/audio)
@@ -376,6 +350,32 @@ The following arguments are required:
 
 ```php
 $response = $calls->createGather("111111", $options);
+```
+
+##### Get the gather DTMF parameters and results (GET /users/:user_id/calls/:call_id/gather/:gather_id)
+
+Get the gather DTMF parameters and results
+
+The following arguments are required:
+
+ * __call_id__: call id
+ * __gather_id__: gather id
+
+```php
+$response = $calls->gather("111111", "222222", $options);
+```
+
+##### Update the gather DTMF (Stop Gather) (POST /users/:user_id/calls/:call_id/gather/:gather_id)
+
+Update the gather DTMF (Stop Gather)
+
+The following arguments are required:
+
+ * __call_id__: call id
+ * __gather_id__: gather id
+
+```php
+$response = $calls->updateGather("111111", "222222", $options);
 ```
 
 ### This resource provides a CNAM number info api
