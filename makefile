@@ -16,7 +16,7 @@ build:
 	git checkout master
 	cp -rf $(OUT_DIR)/php/* .
 	rm -rf $(OUT_DIR)
-	cp -rf $(SOURCE_DIR)/example.md
+	cp -rf $(SOURCE_DIR)/example.md $(OUT_DIR)
 	git add .
 	git commit -m "Deploy new package generate on $(shell date)"
 	git push origin master
