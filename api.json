@@ -313,6 +313,60 @@
           }
         ]
       }
+    },
+
+    "conferences": {
+      "args": ["user_id"],
+      "create": {
+        "path": "/users/:user_id/conferences",
+        "method": "post",
+        "params": [
+          {
+            "name": "number",
+            "required": true
+          }
+        ]
+      }  
+    },
+
+    "bridges": {
+      "args": ["user_id"],
+      "create": {
+        "path": "/users/:user_id/bridges",
+        "method": "post",
+        "params": [
+          {
+            "name": "bridgeAudio",
+          },
+          {
+            "name": "callIds",
+          }
+        ]
+      },
+      "audio": {
+        "path": "/users/:user_id/bridges/:bridge_id/audio",
+        "method": "post",
+        "params": [
+          {
+            "name": "bridge_id",
+            "required": true,
+            "url_use": true
+          }
+        ]
+      },
+
+      'listCall': {
+        "path": "/users/:user_id/bridges/:bridge_id/calls",
+        "params": [
+          {
+            "name": "bridge_id",
+            "required": true,
+            "url_use": true
+          }
+        ]
+        
+      }
+         
     }
 
   }
