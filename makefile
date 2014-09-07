@@ -16,6 +16,9 @@ clean:
 		rm -rf python node php ruby $(OUT_DIR) $(BUILD_DIR)
 
 build:
+	git checkout master
+	git pull origin master
+	git checkout alpaca
 	cp -rf "$(SOURCE_DIR)" "$(BUILD_DIR)"
 	cd $(BUILD_DIR)/bandwidth ; \
 		pwd ; \
