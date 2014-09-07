@@ -21,11 +21,12 @@ build:
 		pwd ; \
 		git checkout .;\
 		git checkout master;\
+		git pull origin master ; \
 		cp -rf $(OUT_DIR)/php/* . ; \
 		cp -rf $(SOURCE_DIR)/example.md .; \
 		git add .; \
 		git commit -m "Deploy new package generate on $(shell date)"; \
-		git pull origin master ; \
 		git tag -a $(VERSION) -m "Publish $(VERSION)"
+		git push tags 
 		git push -f origin master ; \
 
