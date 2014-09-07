@@ -22,50 +22,17 @@ class Calls
     }
 
     /**
-     * Gets a list of active and historic calls you made or received
+     * Play an audio or speak a sentence in a call
      *
-     * '/users/:user_id/calls' GET
-     */
-    public function fetch(array $options = array())
-    {
-        $body = (isset($options['query']) ? $options['query'] : array());
-
-        $response = $this->client->get('/users/'.rawurlencode($this->user_id).'/calls', $body, $options);
-
-        return $response;
-    }
-
-    /**
-     * Makes a phone call.
-     *
-     * '/users/:user_id/calls' POST
-     *
-     * @param $to number which we call to
-     * @param $from number which we call from
-     */
-    public function create($to, $from, array $options = array())
-    {
-        $body = (isset($options['body']) ? $options['body'] : array());
-        $body['to'] = $to;
-        $body['from'] = $from;
-
-        $response = $this->client->post('/users/'.rawurlencode($this->user_id).'/calls', $body, $options);
-
-        return $response;
-    }
-
-    /**
-     * Send DTMF to a call
-     *
-     * '/users/:user_id/calls/:call_id/dtmf' POST
+     * '/users/:user_id/calls/:call_id/audio' POST
      *
      * @param $call_id call id
      */
-    public function dtmf($call_id, array $options = array())
+    public function audio($call_id, array $options = array())
     {
         $body = (isset($options['body']) ? $options['body'] : array());
 
-        $response = $this->client->post('/users/'.rawurlencode($this->user_id).'/calls/'.rawurlencode($call_id).'/dtmf', $body, $options);
+        $response = $this->client->post('/users/'.rawurlencode($this->user_id).'/calls/'.rawurlencode($call_id).'/audio', $body, $options);
 
         return $response;
     }
@@ -104,6 +71,39 @@ class Calls
     }
 
     /**
+     * Gets a list of active and historic calls you made or received
+     *
+     * '/users/:user_id/calls' GET
+     */
+    public function fetch(array $options = array())
+    {
+        $body = (isset($options['query']) ? $options['query'] : array());
+
+        $response = $this->client->get('/users/'.rawurlencode($this->user_id).'/calls', $body, $options);
+
+        return $response;
+    }
+
+    /**
+     * Makes a phone call.
+     *
+     * '/users/:user_id/calls' POST
+     *
+     * @param $to number which we call to
+     * @param $from number which we call from
+     */
+    public function create($to, $from, array $options = array())
+    {
+        $body = (isset($options['body']) ? $options['body'] : array());
+        $body['to'] = $to;
+        $body['from'] = $from;
+
+        $response = $this->client->post('/users/'.rawurlencode($this->user_id).'/calls', $body, $options);
+
+        return $response;
+    }
+
+    /**
      * Gets information about an active or completed call. No query parameters are supported
      *
      * '/users/:user_id/calls/:call_id' GET
@@ -136,17 +136,17 @@ class Calls
     }
 
     /**
-     * Play an audio or speak a sentence in a call
+     * Send DTMF to a call
      *
-     * '/users/:user_id/calls/:call_id/audio' POST
+     * '/users/:user_id/calls/:call_id/dtmf' POST
      *
      * @param $call_id call id
      */
-    public function audio($call_id, array $options = array())
+    public function dtmf($call_id, array $options = array())
     {
         $body = (isset($options['body']) ? $options['body'] : array());
 
-        $response = $this->client->post('/users/'.rawurlencode($this->user_id).'/calls/'.rawurlencode($call_id).'/audio', $body, $options);
+        $response = $this->client->post('/users/'.rawurlencode($this->user_id).'/calls/'.rawurlencode($call_id).'/dtmf', $body, $options);
 
         return $response;
     }
