@@ -29,7 +29,7 @@ build:
 		cp -rf $(SOURCE_DIR)/example.md .; \
 		git add .; \
 		git commit -m "Deploy v$(VERSION) generate on $(shell date)"; \
-		git tag -a $(VERSION) -m "Publish $(VERSION)"
+		git tag -a $(VERSION) -m "Publish $(VERSION)" \
 		git push origin master ; \
 		git push --tags;
 
