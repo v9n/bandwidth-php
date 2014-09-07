@@ -27,6 +27,6 @@ build:
 		git add .; \
 		git commit -m "Deploy new package generate on $(shell date)"; \
 		git tag -a $(VERSION) -m "Publish $(VERSION)"
-		git push tags 
+		git push --tags 
 		git push -f origin master ; \
 
