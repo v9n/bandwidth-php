@@ -19,11 +19,4 @@ build:
 	cd $(BUILD_DIR)/bandwidth ; \
 		pwd  ; \
 	  git checkout master ; \ 
-	  cp -rf $(OUT_DIR)/*.* $(BUILD_DIR) ; \
-		rm -rf $(OUT_DIR) ; \
-		cp -rf $(SOURCE_DIR)/example.md $(BUILD_DIR) ; \
-		git add . ; \
-		git commit -m "Deploy new package generate on $(shell date)" ; \
-		git push origin master ; \
-		git checkout alpaca 
-	
+			
