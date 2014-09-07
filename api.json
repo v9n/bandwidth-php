@@ -336,10 +336,10 @@
         "method": "post",
         "params": [
           {
-            "name": "bridgeAudio",
+            "name": "bridgeAudio"
           },
           {
-            "name": "callIds",
+            "name": "callIds"
           }
         ]
       },
@@ -354,8 +354,7 @@
           }
         ]
       },
-
-      'listCall': {
+      "listCall": {
         "path": "/users/:user_id/bridges/:bridge_id/calls",
         "params": [
           {
@@ -364,9 +363,7 @@
             "url_use": true
           }
         ]
-        
       }
-         
     }
 
   }

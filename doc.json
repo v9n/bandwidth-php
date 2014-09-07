@@ -396,10 +396,12 @@
       "desc": "Create a bridge",
       "params": {
         "bridgeAudio": {
-          "desc": "Enable/Disable two way audio path (default = true)"
+          "desc": "Enable/Disable two way audio path (default = true)",
+          "value": "true"
         },
         "callIds": {
-          "desc": "The list of call ids in the bridge. If the list of call ids is not provided the bridge is logically created and it can be used to place calls later."
+          "desc": "The list of call ids in the bridge. If the list of call ids is not provided the bridge is logically created and it can be used to place calls later.",
+          "value": "c_bandwidth_call_id"
         }
       }
     },
