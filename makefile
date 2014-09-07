@@ -20,7 +20,7 @@ build:
 		pwd  ; \
 		git checkout .;\
 		git checkout master;\
-		cp -rf $(OUT_DIR)/php/*.* $(BUILD_DIR) ; \
+		cp -rf $(OUT_DIR)/php/*.* . ; \
 		cp -rf $(SOURCE_DIR)/example.md .; \
 		git add .; \
 		git commit -m "Deploy new package generate on $(shell date)"; \
