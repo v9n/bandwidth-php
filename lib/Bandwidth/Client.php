@@ -71,4 +71,24 @@ class Client
         return new Api\PhoneNumbers($user_id, $this->httpClient);
     }
 
+    /**
+     * The Conference resource allows you create conferences, add members to it, play audio, speak text, mute/unmute members, hold/unhold members and other things related to conferencing.
+     *
+     * @param $user_id user_id of account which is doing API call
+     */
+    public function conferences($user_id)
+    {
+        return new Api\Conferences($user_id, $this->httpClient);
+    }
+
+    /**
+     * Bridges resource. Bridge two calls allowing two way audio between them.
+     *
+     * @param $user_id user_id of account which is doing API call
+     */
+    public function bridges($user_id)
+    {
+        return new Api\Bridges($user_id, $this->httpClient);
+    }
+
 }
