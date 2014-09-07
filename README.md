@@ -259,17 +259,12 @@ The following arguments are required:
 $calls = $client->calls("u-account_id_in_bandwidth");
 ```
 
-##### Makes a phone call. (POST /users/:user_id/calls)
+##### Gets a list of active and historic calls you made or received (GET /users/:user_id/calls)
 
-Makes a phone call.
-
-The following arguments are required:
-
- * __to__: number which we call to
- * __from__: number which we call from
+Gets a list of active and historic calls you made or received
 
 ```php
-$response = $calls->create("4081112244", "6501112222", $options);
+$response = $calls->fetch($options);
 ```
 
 ##### Gets information about an active or completed call (GET /users/:user_id/calls/:call_id)
@@ -296,18 +291,6 @@ The following arguments are required:
 $response = $calls->update("111111", $options);
 ```
 
-##### Send DTMF (POST /users/:user_id/calls/:call_id/dtmf)
-
-Send DTMF to a call
-
-The following arguments are required:
-
- * __call_id__: call id
-
-```php
-$response = $calls->dtmf("111111", $options);
-```
-
 ##### Retrieve all recordings related to the call (GET /users/:user_id/calls/:call_id/recordings)
 
 Retrieve all recordings related to the call
@@ -318,26 +301,6 @@ The following arguments are required:
 
 ```php
 $response = $calls->recordings("111111", $options);
-```
-
-##### Gets a list of active and historic calls you made or received (GET /users/:user_id/calls)
-
-Gets a list of active and historic calls you made or received
-
-```php
-$response = $calls->fetch($options);
-```
-
-##### Play an audio or speak a sentence in a call (POST /users/:user_id/calls/:call_id/audio)
-
-Play an audio or speak a sentence in a call
-
-The following arguments are required:
-
- * __call_id__: call id
-
-```php
-$response = $calls->audio("111111", $options);
 ```
 
 ##### Gather the DTMF digits pressed (POST /users/:user_id/calls/:call_id/gather)
@@ -352,19 +315,6 @@ The following arguments are required:
 $response = $calls->createGather("111111", $options);
 ```
 
-##### Get the gather DTMF parameters and results (GET /users/:user_id/calls/:call_id/gather/:gather_id)
-
-Get the gather DTMF parameters and results
-
-The following arguments are required:
-
- * __call_id__: call id
- * __gather_id__: gather id
-
-```php
-$response = $calls->gather("111111", "222222", $options);
-```
-
 ##### Update the gather DTMF (Stop Gather) (POST /users/:user_id/calls/:call_id/gather/:gather_id)
 
 Update the gather DTMF (Stop Gather)
@@ -376,6 +326,56 @@ The following arguments are required:
 
 ```php
 $response = $calls->updateGather("111111", "222222", $options);
+```
+
+##### Makes a phone call. (POST /users/:user_id/calls)
+
+Makes a phone call.
+
+The following arguments are required:
+
+ * __to__: number which we call to
+ * __from__: number which we call from
+
+```php
+$response = $calls->create("4081112244", "6501112222", $options);
+```
+
+##### Play an audio or speak a sentence in a call (POST /users/:user_id/calls/:call_id/audio)
+
+Play an audio or speak a sentence in a call
+
+The following arguments are required:
+
+ * __call_id__: call id
+
+```php
+$response = $calls->audio("111111", $options);
+```
+
+##### Send DTMF (POST /users/:user_id/calls/:call_id/dtmf)
+
+Send DTMF to a call
+
+The following arguments are required:
+
+ * __call_id__: call id
+
+```php
+$response = $calls->dtmf("111111", $options);
+```
+
+##### Get the gather DTMF parameters and results (GET /users/:user_id/calls/:call_id/gather/:gather_id)
+
+Get the gather DTMF parameters and results
+
+The following arguments are required:
+
+ * __call_id__: call id
+ * __gather_id__: gather id
+
+```php
+$response = $calls->gather("111111", "222222", $options);
 ```
 
 ### This resource provides a CNAM number info api
@@ -476,6 +476,77 @@ The following arguments are required:
 
 ```php
 $response = $phoneNumbers->destroy("n-111111", $options);
+```
+
+### Conference resouce api
+
+The Conference resource allows you create conferences, add members to it, play audio, speak text, mute/unmute members, hold/unhold members and other things related to conferencing.
+
+The following arguments are required:
+
+ * __user_id__: user_id of account which is doing API call
+
+```php
+$conferences = $client->conferences("u-account_id_in_bandwidth");
+```
+
+##### Create a conference. (POST /users/:user_id/conferences)
+
+Creates a conference.
+
+The following arguments are required:
+
+ * __from__: the phone number which conferences will be created on it
+
+```php
+$response = $conferences->create("+14081112323", $options);
+```
+
+### Bridges resource api
+
+Bridges resource. Bridge two calls allowing two way audio between them.
+
+The following arguments are required:
+
+ * __user_id__: user_id of account which is doing API call
+
+```php
+$bridges = $client->bridges("u-account_id_in_bandwidth");
+```
+
+##### Create a bridge (POST /users/:user_id/bridges)
+
+Create a bridge
+
+The following arguments are required:
+
+
+```php
+$response = $bridges->create("true", "c_bandwidth_call_id", $options);
+```
+
+##### Play an audio or speak a sentence in a bridge (POST /users/:user_id/bridges/:bridge_id/audio)
+
+Play an audio or speak a sentence in a bridge
+
+The following arguments are required:
+
+ * __bridge_id__: Bridge ID
+
+```php
+$response = $bridges->audio("b_bridge_id_in_bandwidth", $options);
+```
+
+##### Get the list of calls that are on the bridge (GET /users/:user_id/bridges/:bridge_id/calls)
+
+Get the list of calls that are on the bridge
+
+The following arguments are required:
+
+ * __bridge_id__: Bridge ID
+
+```php
+$response = $bridges->listCall("b_bridge_id_in_bandwidth", $options);
 ```
 
 ## Contributors
