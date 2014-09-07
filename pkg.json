@@ -1,7 +1,7 @@
 {
 	"name": "Bandwidth",
 	"package": "bandwidth-alpaca",
-	"version": "0.6.6",
+	"version": "0.6.7",
 	"url": "https://bandwidth.com",
 	"keywords": ["alpaca", "bandwidth", "api", "client", "library"],
 	"official": false,
