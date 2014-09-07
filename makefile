@@ -18,7 +18,7 @@ build:
 	cp -rf "$(SOURCE_DIR)" "$(BUILD_DIR)"
 	cd $(BUILD_DIR)/bandwidth && \
 		pwd && git checkout master && \ 
-	  cp -rf $(OUT_DIR)/* $(BUILD_DIR) && \
+	  cp -rf $(OUT_DIR)/*.* $(BUILD_DIR) && \
 		rm -rf $(OUT_DIR) && \
 		cp -rf $(SOURCE_DIR)/example.md $(BUILD_DIR) && \
 		git add . && \
