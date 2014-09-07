@@ -30,7 +30,7 @@ build:
 		git add .; \
 		git commit -m "Deploy v$(VERSION) generate on $(shell date)"; \
 		git tag -a $(VERSION) -m "Publish $(VERSION)" \
-		git push origin master ; \
-		git push --tags ; \
+		git push origin master; \
+		git push --tags; \
 		echo "Finish at $(shell date)";
 
