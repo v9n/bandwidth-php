@@ -1,4 +1,4 @@
-VERSION=$(shell grep version pkg.json)
+VERSION=$(shell jq '.version' pkg.json)
 SOURCE_DIR=$(shell pwd)
 OUT_DIR=/tmp/bandwidth-api-kurei
 BUILD_DIR=/tmp/bandwidth-api-build
@@ -6,6 +6,7 @@ BUILD_DIR=/tmp/bandwidth-api-build
 all: clean gen 
 
 gen:
+		echo $(VERSION)
 		mkdir $(OUT_DIR) 
 		mkdir $(BUILD_DIR) 
 		alpaca --no-python --no-node --no-ruby $(SOURCE_DIR)
@@ -25,5 +26,6 @@ build:
 		git add .; \
 		git commit -m "Deploy new package generate on $(shell date)"; \
 		git pull origin master ; \
+		git tag -a $(VERSION) -m "Publish $(VERSION)"
 		git push -f origin master ; \
 
