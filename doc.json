@@ -357,6 +357,75 @@
       }
 
     }
+  },
+
+  "conferences": {
+    "args": {
+      "user_id": {
+        "desc": "user_id of account which is doing API call",
+        "value": "u-account_id_in_bandwidth"
+      }
+    },
+
+    "title": "Conference resouce",
+    "desc": "The Conference resource allows you create conferences, add members to it, play audio, speak text, mute/unmute members, hold/unhold members and other things related to conferencing.",
+    
+    "create": {
+      "title": "Create a conference.",
+      "desc": "Creates a conference.",
+      "params": {
+        "from": {
+          "desc": "the phone number which conferences will be created on it",
+          "value": "+14081112323"
+        }  
+      }
+    }
+  },
+
+  "bridges": {
+    "args": {
+      "user_id": {
+        "desc": "user_id of account which is doing API call",
+        "value": "u-account_id_in_bandwidth"
+      }
+    },
+    "title": "Bridges resource",
+    "desc": "Bridges resource. Bridge two calls allowing two way audio between them.",
+    "create": {
+      "title": "Create a bridge",
+      "desc": "Create a bridge",
+      "params": {
+        "bridgeAudio": {
+          "desc": "Enable/Disable two way audio path (default = true)"
+        },
+        "callIds": {
+          "desc": "The list of call ids in the bridge. If the list of call ids is not provided the bridge is logically created and it can be used to place calls later."
+        }
+      }
+    },
+
+    "audio": {
+      "title":"Play an audio or speak a sentence in a bridge",
+      "desc": "Play an audio or speak a sentence in a bridge",
+      "params": {
+        "bridge_id": {
+          "desc": "Bridge ID",
+          "value": "b_bridge_id_in_bandwidth"
+        }
+      }
+    },
+
+    "listCall": {
+      "title": "Get the list of calls that are on the bridge",
+      "desc": "Get the list of calls that are on the bridge",
+      "params": {
+        "bridge_id": {
+          "desc": "Bridge ID",
+          "value": "b_bridge_id_in_bandwidth"
+        }
+      }
+    }
+  
   }
 
 }
