@@ -3,6 +3,13 @@ bandwidth-php
 
 API client for bandwidth.com. Generate with https://github.com/pksunkara/alpaca
 
+# Build this
+
+Edit JSON file, remember to bump `VERSION`.
+
+$ make
+$ make build
+
 # API Document
 
 [https://catapult.inetwork.com/pages/home.jsf](https://catapult.inetwork.com/pages/home.jsf)
