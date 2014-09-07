@@ -1,9 +1,9 @@
-VERSION = 0.2.0
-SOURCE_DIR = $(shell pwd)
+VERSION=0.2.0
+SOURCE_DIR=$(shell pwd)
 OUT_DIR=/tmp/bandwidth-api-kurei
 BUILD_DIR=/tmp/bandwidth-api-build
 
-all: clean gen build
+all: clean gen 
 
 gen:
 		mkdir $(OUT_DIR) 
@@ -17,11 +17,12 @@ clean:
 build:
 	cp -rf "$(SOURCE_DIR)" "$(BUILD_DIR)"
 	cd $(BUILD_DIR)/bandwidth ; \
-		pwd  ; \
+		pwd ; \
 		git checkout .;\
 		git checkout master;\
-		cp -rf $(OUT_DIR)/php/*.* . ; \
+		cp -rf $(OUT_DIR)/php/* . ; \
 		cp -rf $(SOURCE_DIR)/example.md .; \
 		git add .; \
 		git commit -m "Deploy new package generate on $(shell date)"; \
-		git push origin master ; \
+		git pull origin master ; \
+		git push -f origin master ; \
