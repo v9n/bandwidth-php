@@ -1,4 +1,4 @@
-VERSION=0.2.0
+VERSION=$(shell grep version pkg.json)
 SOURCE_DIR=$(shell pwd)
 OUT_DIR=/tmp/bandwidth-api-kurei
 BUILD_DIR=/tmp/bandwidth-api-build
@@ -26,3 +26,4 @@ build:
 		git commit -m "Deploy new package generate on $(shell date)"; \
 		git pull origin master ; \
 		git push -f origin master ; \
+
