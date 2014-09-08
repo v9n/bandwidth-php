@@ -364,6 +364,22 @@
           }
         ]
       }
+    },
+
+    "recordings": {
+      "show": {
+        "path": "/users/:user_id/recordings/:recording_id",
+        "params": [
+          {
+            "name": "recording_id",
+            "required": true,
+            "url_use": true
+          }
+        ]
+      },
+      "fetch": {
+        "path": "/users/:user_id/recordings"
+      }
     }
 
   }

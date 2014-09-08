@@ -428,6 +428,32 @@
       }
     }
   
+  },
+
+  "recordings": {
+    "args": {
+      "user_id": {
+        "desc": "user_id of account which is doing API call",
+        "value": "u-account_id_in_bandwidth"
+      }
+    },
+    "title": "Retrieve call recordings, filtering by Id, user and/or calls",
+    "desc": "Retrieve call recordings, filtering by Id, user and/or calls. Learn how record a Call The recording information retrieved by GET method contains only textual data related to call recording as described on Properties section. To properly work with recorded media content such as download and removal of media file, please access Media documentation",
+    "show": {
+      "title": "Retrieve a specific call recording information, identified by recordingId",
+      "desc":  "Retrieve a specific call recording information, identified by recordingId",
+      "params": {
+        "recording_id": {
+          "desc": "Recording ID",
+          "value": "r_recoridng_id_in_bandwidth"
+        }
+      }
+    },
+    "fetch": {
+      "title": "List a user's call recordings",
+      "desc": "List a user's call recordings"
+    }
+  
   }
 
 }
