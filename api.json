@@ -380,7 +380,22 @@
       "fetch": {
         "path": "/users/:user_id/recordings"
       }
-    }
+    },
 
+    "errors": {
+      "show": {
+        "path": "/users/:user_id/errors/:error_id",
+        "params": [
+          {
+            "name": "error_id",
+            "required": true,
+            "url_use": true
+          }
+        ]
+      },
+      "fetch": {
+        "path": "/users/:user_id/errors"
+      }
+    }
   }
 }

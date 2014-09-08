@@ -454,6 +454,30 @@
       "desc": "List a user's call recordings"
     }
   
-  }
+  },
+  "errors": {
+    "args": {
+      "user_id": {
+        "desc": "user_id of account which is doing API call",
+        "value": "u-account_id_in_bandwidth"
+      }
+    },
+    "title": "User Errors",
+    "desc": " The User Errors resource lets you see information about errors that happened in your API calls and during applications callbacks. This error information can be very helpful when you're debugging an application.  Because error information can be large, and errors in the distant past are less useful than new ones, Bandwidth API limits the number of user errors it keeps. ",
+    "show": {
+      "title": "Gets information about one user error",
+      "desc":  "Gets information about one user error",
+      "params": {
+        "error_id": {
+          "desc": "Error ID",
+          "value": "error_id"
+        }
+      }
+    },
+    "fetch": {
+      "title": "Gets all the user errors for a user",
+      "desc": "Gets all the user errors for a user"
+    }
+
 
 }
