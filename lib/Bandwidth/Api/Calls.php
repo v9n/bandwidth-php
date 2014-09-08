@@ -52,6 +52,22 @@ class Calls
     }
 
     /**
+     * Play an audio or speak a sentence in a call
+     *
+     * '/users/:user_id/calls/:call_id/audio' POST
+     *
+     * @param $call_id call id
+     */
+    public function audio($call_id, array $options = array())
+    {
+        $body = (isset($options['body']) ? $options['body'] : array());
+
+        $response = $this->client->post('/users/'.rawurlencode($this->user_id).'/calls/'.rawurlencode($call_id).'/audio', $body, $options);
+
+        return $response;
+    }
+
+    /**
      * Send DTMF to a call
      *
      * '/users/:user_id/calls/:call_id/dtmf' POST
@@ -68,18 +84,33 @@ class Calls
     }
 
     /**
-     * Get the gather DTMF parameters and results
+     * Retrieve all recordings related to the call
      *
-     * '/users/:user_id/calls/:call_id/gather/:gather_id' GET
+     * '/users/:user_id/calls/:call_id/recordings' GET
      *
      * @param $call_id call id
-     * @param $gather_id gather id
      */
-    public function gather($call_id, $gather_id, array $options = array())
+    public function recordings($call_id, array $options = array())
     {
         $body = (isset($options['query']) ? $options['query'] : array());
 
-        $response = $this->client->get('/users/'.rawurlencode($this->user_id).'/calls/'.rawurlencode($call_id).'/gather/'.rawurlencode($gather_id).'', $body, $options);
+        $response = $this->client->get('/users/'.rawurlencode($this->user_id).'/calls/'.rawurlencode($call_id).'/recordings', $body, $options);
+
+        return $response;
+    }
+
+    /**
+     * Gather the DTMF digits pressed by the user.
+     *
+     * '/users/:user_id/calls/:call_id/gather' POST
+     *
+     * @param $call_id call id
+     */
+    public function createGather($call_id, array $options = array())
+    {
+        $body = (isset($options['body']) ? $options['body'] : array());
+
+        $response = $this->client->post('/users/'.rawurlencode($this->user_id).'/calls/'.rawurlencode($call_id).'/gather', $body, $options);
 
         return $response;
     }
@@ -137,49 +168,18 @@ class Calls
     }
 
     /**
-     * Play an audio or speak a sentence in a call
+     * Get the gather DTMF parameters and results
      *
-     * '/users/:user_id/calls/:call_id/audio' POST
-     *
-     * @param $call_id call id
-     */
-    public function audio($call_id, array $options = array())
-    {
-        $body = (isset($options['body']) ? $options['body'] : array());
-
-        $response = $this->client->post('/users/'.rawurlencode($this->user_id).'/calls/'.rawurlencode($call_id).'/audio', $body, $options);
-
-        return $response;
-    }
-
-    /**
-     * Retrieve all recordings related to the call
-     *
-     * '/users/:user_id/calls/:call_id/recordings' GET
+     * '/users/:user_id/calls/:call_id/gather/:gather_id' GET
      *
      * @param $call_id call id
+     * @param $gather_id gather id
      */
-    public function recordings($call_id, array $options = array())
+    public function gather($call_id, $gather_id, array $options = array())
     {
         $body = (isset($options['query']) ? $options['query'] : array());
 
-        $response = $this->client->get('/users/'.rawurlencode($this->user_id).'/calls/'.rawurlencode($call_id).'/recordings', $body, $options);
-
-        return $response;
-    }
-
-    /**
-     * Gather the DTMF digits pressed by the user.
-     *
-     * '/users/:user_id/calls/:call_id/gather' POST
-     *
-     * @param $call_id call id
-     */
-    public function createGather($call_id, array $options = array())
-    {
-        $body = (isset($options['body']) ? $options['body'] : array());
-
-        $response = $this->client->post('/users/'.rawurlencode($this->user_id).'/calls/'.rawurlencode($call_id).'/gather', $body, $options);
+        $response = $this->client->get('/users/'.rawurlencode($this->user_id).'/calls/'.rawurlencode($call_id).'/gather/'.rawurlencode($gather_id).'', $body, $options);
 
         return $response;
     }

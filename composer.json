@@ -1,6 +1,6 @@
 {
 	"name": "kureikain/bandwidth-alpaca",
-	"version": "1.1.0",
+	"version": "1.2.1",
 	"description": "Bandwidth API library client for PHP",
 	"homepage": "https://bandwidth.com",
 	"authors": [
