@@ -259,56 +259,6 @@ The following arguments are required:
 $calls = $client->calls("u-account_id_in_bandwidth");
 ```
 
-##### Makes a phone call. (POST /users/:user_id/calls)
-
-Makes a phone call.
-
-The following arguments are required:
-
- * __to__: number which we call to
- * __from__: number which we call from
-
-```php
-$response = $calls->create("4081112244", "6501112222", $options);
-```
-
-##### Retrieve all recordings related to the call (GET /users/:user_id/calls/:call_id/recordings)
-
-Retrieve all recordings related to the call
-
-The following arguments are required:
-
- * __call_id__: call id
-
-```php
-$response = $calls->recordings("111111", $options);
-```
-
-##### Gather the DTMF digits pressed (POST /users/:user_id/calls/:call_id/gather)
-
-Gather the DTMF digits pressed by the user.
-
-The following arguments are required:
-
- * __call_id__: call id
-
-```php
-$response = $calls->createGather("111111", $options);
-```
-
-##### Update the gather DTMF (Stop Gather) (POST /users/:user_id/calls/:call_id/gather/:gather_id)
-
-Update the gather DTMF (Stop Gather)
-
-The following arguments are required:
-
- * __call_id__: call id
- * __gather_id__: gather id
-
-```php
-$response = $calls->updateGather("111111", "222222", $options);
-```
-
 ##### Gets a list of active and historic calls you made or received (GET /users/:user_id/calls)
 
 Gets a list of active and historic calls you made or received
@@ -327,18 +277,6 @@ The following arguments are required:
 
 ```php
 $response = $calls->show("111111", $options);
-```
-
-##### Changes properties of an active phone call (POST /users/:user_id/calls/:call_id)
-
-Changes properties of an active phone call
-
-The following arguments are required:
-
- * __call_id__: call id
-
-```php
-$response = $calls->update("111111", $options);
 ```
 
 ##### Play an audio or speak a sentence in a call (POST /users/:user_id/calls/:call_id/audio)
@@ -365,6 +303,30 @@ The following arguments are required:
 $response = $calls->dtmf("111111", $options);
 ```
 
+##### Retrieve all recordings related to the call (GET /users/:user_id/calls/:call_id/recordings)
+
+Retrieve all recordings related to the call
+
+The following arguments are required:
+
+ * __call_id__: call id
+
+```php
+$response = $calls->recordings("111111", $options);
+```
+
+##### Gather the DTMF digits pressed (POST /users/:user_id/calls/:call_id/gather)
+
+Gather the DTMF digits pressed by the user.
+
+The following arguments are required:
+
+ * __call_id__: call id
+
+```php
+$response = $calls->createGather("111111", $options);
+```
+
 ##### Get the gather DTMF parameters and results (GET /users/:user_id/calls/:call_id/gather/:gather_id)
 
 Get the gather DTMF parameters and results
@@ -376,6 +338,44 @@ The following arguments are required:
 
 ```php
 $response = $calls->gather("111111", "222222", $options);
+```
+
+##### Makes a phone call. (POST /users/:user_id/calls)
+
+Makes a phone call.
+
+The following arguments are required:
+
+ * __to__: number which we call to
+ * __from__: number which we call from
+
+```php
+$response = $calls->create("4081112244", "6501112222", $options);
+```
+
+##### Changes properties of an active phone call (POST /users/:user_id/calls/:call_id)
+
+Changes properties of an active phone call
+
+The following arguments are required:
+
+ * __call_id__: call id
+
+```php
+$response = $calls->update("111111", $options);
+```
+
+##### Update the gather DTMF (Stop Gather) (POST /users/:user_id/calls/:call_id/gather/:gather_id)
+
+Update the gather DTMF (Stop Gather)
+
+The following arguments are required:
+
+ * __call_id__: call id
+ * __gather_id__: gather id
+
+```php
+$response = $calls->updateGather("111111", "222222", $options);
 ```
 
 ### This resource provides a CNAM number info api
