@@ -33,4 +33,6 @@ build:
 		git push origin master; \
 		git push --tags; \
 		echo "Finish at $(shell date)";
-
+	git checkout master
+	git pull origin master
+	git checkout alpaca
