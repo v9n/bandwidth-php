@@ -387,12 +387,12 @@
       "params": {
         "conference_id": {
           "desc": "Conference ID",
-          "value": "c_conference_id"
+          "value": "conf-2jir46wjc5puqpiwthqma5y"
         },
 
         "callId": {
           "desc": "Call ID to join into conference",
-          "value": "call_id_in_bandwidth"
+          "value": "c-m2vrf4lpryjlvwgvsnf6ery"
         }
       }
     },
@@ -403,7 +403,7 @@
       "params": {
         "conference_id": {
           "desc": "Conference ID",
-          "value": "c_conference_id"
+          "value": "conf-2jir46wjc5puqpiwthqma5y"
         }
       }
     }
@@ -429,7 +429,7 @@
         },
         "callIds": {
           "desc": "The list of call ids in the bridge. If the list of call ids is not provided the bridge is logically created and it can be used to place calls later.",
-          "value": "c_bandwidth_call_id"
+          "value": "c-m2vrf4lpryjlvwgvsnf6ery"
         }
       }
     },
