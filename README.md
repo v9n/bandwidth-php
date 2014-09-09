@@ -207,81 +207,6 @@ Search and order available toll free numbers
 $response = $availableNumbers->createTollFree($options);
 ```
 
-### Bridges resource api
-
-Bridges resource. Bridge two calls allowing two way audio between them.
-
-The following arguments are required:
-
- * __user_id__: user_id of account which is doing API call
-
-```php
-$bridges = $client->bridges("u-account_id_in_bandwidth");
-```
-
-##### Create a bridge (POST /users/:user_id/bridges)
-
-Create a bridge
-
-The following arguments are required:
-
-
-```php
-$response = $bridges->create("true", "c_bandwidth_call_id", $options);
-```
-
-##### Play an audio or speak a sentence in a bridge (POST /users/:user_id/bridges/:bridge_id/audio)
-
-Play an audio or speak a sentence in a bridge
-
-The following arguments are required:
-
- * __bridge_id__: Bridge ID
-
-```php
-$response = $bridges->audio("b_bridge_id_in_bandwidth", $options);
-```
-
-##### Get the list of calls that are on the bridge (GET /users/:user_id/bridges/:bridge_id/calls)
-
-Get the list of calls that are on the bridge
-
-The following arguments are required:
-
- * __bridge_id__: Bridge ID
-
-```php
-$response = $bridges->listCall("b_bridge_id_in_bandwidth", $options);
-```
-
-### User Errors api
-
- The User Errors resource lets you see information about errors that happened in your API calls and during applications callbacks. This error information can be very helpful when you're debugging an application.  Because error information can be large, and errors in the distant past are less useful than new ones, Bandwidth API limits the number of user errors it keeps. 
-
-```php
-$errors = $client->errors("u-account_id_in_bandwidth");
-```
-
-##### Gets information about one user error (GET /users/:user_id/errors/:error_id)
-
-Gets information about one user error
-
-The following arguments are required:
-
- * __error_id__: Error ID
-
-```php
-$response = $errors->show("error_id", $options);
-```
-
-##### Gets all the user errors for a user (GET /users/:user_id/errors)
-
-Gets all the user errors for a user
-
-```php
-$response = $errors->fetch($options);
-```
-
 ### message resources api
 
 Lets you send SMS text messages and view messages that were previously sent or received
@@ -334,38 +259,6 @@ The following arguments are required:
 $calls = $client->calls("u-account_id_in_bandwidth");
 ```
 
-##### Gets information about an active or completed call (GET /users/:user_id/calls/:call_id)
-
-Gets information about an active or completed call. No query parameters are supported
-
-The following arguments are required:
-
- * __call_id__: call id
-
-```php
-$response = $calls->show("111111", $options);
-```
-
-##### Retrieve all recordings related to the call (GET /users/:user_id/calls/:call_id/recordings)
-
-Retrieve all recordings related to the call
-
-The following arguments are required:
-
- * __call_id__: call id
-
-```php
-$response = $calls->recordings("111111", $options);
-```
-
-##### Gets a list of active and historic calls you made or received (GET /users/:user_id/calls)
-
-Gets a list of active and historic calls you made or received
-
-```php
-$response = $calls->fetch($options);
-```
-
 ##### Makes a phone call. (POST /users/:user_id/calls)
 
 Makes a phone call.
@@ -379,18 +272,6 @@ The following arguments are required:
 $response = $calls->create("4081112244", "6501112222", $options);
 ```
 
-##### Changes properties of an active phone call (POST /users/:user_id/calls/:call_id)
-
-Changes properties of an active phone call
-
-The following arguments are required:
-
- * __call_id__: call id
-
-```php
-$response = $calls->update("111111", $options);
-```
-
 ##### Play an audio or speak a sentence in a call (POST /users/:user_id/calls/:call_id/audio)
 
 Play an audio or speak a sentence in a call
@@ -401,18 +282,6 @@ The following arguments are required:
 
 ```php
 $response = $calls->audio("111111", $options);
-```
-
-##### Send DTMF (POST /users/:user_id/calls/:call_id/dtmf)
-
-Send DTMF to a call
-
-The following arguments are required:
-
- * __call_id__: call id
-
-```php
-$response = $calls->dtmf("111111", $options);
 ```
 
 ##### Gather the DTMF digits pressed (POST /users/:user_id/calls/:call_id/gather)
@@ -438,6 +307,62 @@ The following arguments are required:
 
 ```php
 $response = $calls->gather("111111", "222222", $options);
+```
+
+##### Gets a list of active and historic calls you made or received (GET /users/:user_id/calls)
+
+Gets a list of active and historic calls you made or received
+
+```php
+$response = $calls->fetch($options);
+```
+
+##### Gets information about an active or completed call (GET /users/:user_id/calls/:call_id)
+
+Gets information about an active or completed call. No query parameters are supported
+
+The following arguments are required:
+
+ * __call_id__: call id
+
+```php
+$response = $calls->show("111111", $options);
+```
+
+##### Changes properties of an active phone call (POST /users/:user_id/calls/:call_id)
+
+Changes properties of an active phone call
+
+The following arguments are required:
+
+ * __call_id__: call id
+
+```php
+$response = $calls->update("111111", $options);
+```
+
+##### Send DTMF (POST /users/:user_id/calls/:call_id/dtmf)
+
+Send DTMF to a call
+
+The following arguments are required:
+
+ * __call_id__: call id
+
+```php
+$response = $calls->dtmf("111111", $options);
+```
+
+##### Retrieve all recordings related to the call (GET /users/:user_id/calls/:call_id/recordings)
+
+Retrieve all recordings related to the call
+
+The following arguments are required:
+
+ * __call_id__: call id
+
+```php
+$response = $calls->recordings("111111", $options);
 ```
 
 ##### Update the gather DTMF (Stop Gather) (POST /users/:user_id/calls/:call_id/gather/:gather_id)
@@ -471,6 +396,53 @@ Get the CNAM of the number
 
 ```php
 $response = $numberInfo->show($options);
+```
+
+### Bridges resource api
+
+Bridges resource. Bridge two calls allowing two way audio between them.
+
+The following arguments are required:
+
+ * __user_id__: user_id of account which is doing API call
+
+```php
+$bridges = $client->bridges("u-account_id_in_bandwidth");
+```
+
+##### Create a bridge (POST /users/:user_id/bridges)
+
+Create a bridge
+
+The following arguments are required:
+
+
+```php
+$response = $bridges->create("true", "c_bandwidth_call_id", $options);
+```
+
+##### Play an audio or speak a sentence in a bridge (POST /users/:user_id/bridges/:bridge_id/audio)
+
+Play an audio or speak a sentence in a bridge
+
+The following arguments are required:
+
+ * __bridge_id__: Bridge ID
+
+```php
+$response = $bridges->audio("b_bridge_id_in_bandwidth", $options);
+```
+
+##### Get the list of calls that are on the bridge (GET /users/:user_id/bridges/:bridge_id/calls)
+
+Get the list of calls that are on the bridge
+
+The following arguments are required:
+
+ * __bridge_id__: Bridge ID
+
+```php
+$response = $bridges->listCall("b_bridge_id_in_bandwidth", $options);
 ```
 
 ### The Phone Numbers resource lets you get phone numbers for use with your programs and manage numbers you already have api
@@ -628,6 +600,34 @@ List a user's call recordings
 
 ```php
 $response = $recordings->fetch($options);
+```
+
+### User Errors api
+
+ The User Errors resource lets you see information about errors that happened in your API calls and during applications callbacks. This error information can be very helpful when you're debugging an application.  Because error information can be large, and errors in the distant past are less useful than new ones, Bandwidth API limits the number of user errors it keeps. 
+
+```php
+$errors = $client->errors("u-account_id_in_bandwidth");
+```
+
+##### Gets information about one user error (GET /users/:user_id/errors/:error_id)
+
+Gets information about one user error
+
+The following arguments are required:
+
+ * __error_id__: Error ID
+
+```php
+$response = $errors->show("error_id", $options);
+```
+
+##### Gets all the user errors for a user (GET /users/:user_id/errors)
+
+Gets all the user errors for a user
+
+```php
+$response = $errors->fetch($options);
 ```
 
 ## Contributors

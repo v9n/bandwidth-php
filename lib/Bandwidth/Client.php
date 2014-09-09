@@ -32,24 +32,6 @@ class Client
     }
 
     /**
-     * Bridges resource. Bridge two calls allowing two way audio between them.
-     *
-     * @param $user_id user_id of account which is doing API call
-     */
-    public function bridges($user_id)
-    {
-        return new Api\Bridges($user_id, $this->httpClient);
-    }
-
-    /**
-     *  The User Errors resource lets you see information about errors that happened in your API calls and during applications callbacks. This error information can be very helpful when you're debugging an application.  Because error information can be large, and errors in the distant past are less useful than new ones, Bandwidth API limits the number of user errors it keeps. 
-     */
-    public function errors()
-    {
-        return new Api\Errors($this->httpClient);
-    }
-
-    /**
      * Lets you send SMS text messages and view messages that were previously sent or received
      *
      * @param $user_id user_id of account which is doing API call
@@ -80,6 +62,16 @@ class Client
     }
 
     /**
+     * Bridges resource. Bridge two calls allowing two way audio between them.
+     *
+     * @param $user_id user_id of account which is doing API call
+     */
+    public function bridges($user_id)
+    {
+        return new Api\Bridges($user_id, $this->httpClient);
+    }
+
+    /**
      * The Phone Numbers resource lets you get phone numbers for use with your programs and manage numbers you already have
      *
      * @param $user_id user_id of account which is doing API call
@@ -105,6 +97,14 @@ class Client
     public function recordings()
     {
         return new Api\Recordings($this->httpClient);
+    }
+
+    /**
+     *  The User Errors resource lets you see information about errors that happened in your API calls and during applications callbacks. This error information can be very helpful when you're debugging an application.  Because error information can be large, and errors in the distant past are less useful than new ones, Bandwidth API limits the number of user errors it keeps. 
+     */
+    public function errors()
+    {
+        return new Api\Errors($this->httpClient);
     }
 
 }
