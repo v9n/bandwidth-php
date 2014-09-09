@@ -379,7 +379,35 @@
           "value": "+14081112323"
         }  
       }
+    },
+
+    "createMember": {
+      "title": "Add a member to a conference.",
+      "desc": "Add a member to a conference.",
+      "params": {
+        "conference_id": {
+          "desc": "Conference ID",
+          "value": "c_conference_id"
+        },
+
+        "callId": {
+          "desc": "Call ID to join into conference",
+          "value": "call_id_in_bandwidth"
+        }
+      }
+    },
+
+    "audio": {
+      "title": "Play an audio/speak a sentence in the conference.",
+      "desc": "Play an audio/speak a sentence in the conference.",
+      "params": {
+        "conference_id": {
+          "desc": "Conference ID",
+          "value": "c_conference_id"
+        }
+      }
     }
+
   },
 
   "bridges": {

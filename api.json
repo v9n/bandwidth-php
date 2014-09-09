@@ -326,7 +326,35 @@
             "required": true
           }
         ]
-      }  
+      },
+
+      "createMember" : {
+        "path": "/users/:user_id/conferences/:conference_id",
+        "method": "post",
+        "params": [
+          {
+            "name": "conference_id",
+            "required": true,
+            "url_use": true
+          },
+          {
+            "name": "callId",
+            "required": true
+          }
+        ]
+      },
+
+      "audio" : {
+        "path": "/users/:user_id/conferences/:conference_id/audio",
+        "method": "post",
+        "params": [
+          {
+            "name": "conference_id",
+            "required": true,
+            "url_use": true
+          }
+        ]
+      }
     },
 
     "bridges": {
