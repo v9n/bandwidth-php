@@ -38,4 +38,38 @@ class Conferences
         return $response;
     }
 
+    /**
+     * Add a member to a conference.
+     *
+     * '/users/:user_id/conferences/:conference_id' POST
+     *
+     * @param $conference_id Conference ID
+     * @param $callId Call ID to join into conference
+     */
+    public function createMember($conference_id, $callId, array $options = array())
+    {
+        $body = (isset($options['body']) ? $options['body'] : array());
+        $body['callId'] = $callId;
+
+        $response = $this->client->post('/users/'.rawurlencode($this->user_id).'/conferences/'.rawurlencode($conference_id).'', $body, $options);
+
+        return $response;
+    }
+
+    /**
+     * Play an audio/speak a sentence in the conference.
+     *
+     * '/users/:user_id/conferences/:conference_id/audio' POST
+     *
+     * @param $conference_id Conference ID
+     */
+    public function audio($conference_id, array $options = array())
+    {
+        $body = (isset($options['body']) ? $options['body'] : array());
+
+        $response = $this->client->post('/users/'.rawurlencode($this->user_id).'/conferences/'.rawurlencode($conference_id).'/audio', $body, $options);
+
+        return $response;
+    }
+
 }
