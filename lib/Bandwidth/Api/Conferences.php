@@ -41,7 +41,7 @@ class Conferences
     /**
      * Add a member to a conference.
      *
-     * '/users/:user_id/conferences/:conference_id' POST
+     * '/users/:user_id/conferences/:conference_id/members' POST
      *
      * @param $conference_id Conference ID
      * @param $callId Call ID to join into conference
@@ -51,7 +51,7 @@ class Conferences
         $body = (isset($options['body']) ? $options['body'] : array());
         $body['callId'] = $callId;
 
-        $response = $this->client->post('/users/'.rawurlencode($this->user_id).'/conferences/'.rawurlencode($conference_id).'', $body, $options);
+        $response = $this->client->post('/users/'.rawurlencode($this->user_id).'/conferences/'.rawurlencode($conference_id).'/members', $body, $options);
 
         return $response;
     }

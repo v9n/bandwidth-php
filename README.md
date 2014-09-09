@@ -133,34 +133,6 @@ $body = array('user' => 'pksunkara');
 // >>> '{"user": "pksunkara"}'
 ```
 
-### account information api
-
-Retrieve current balance, transaction list, account type and all elements related to your platform account.
-
-The following arguments are required:
-
- * __user_id__: user_id of account which is doing API call
-
-```php
-$account = $client->account("u-account_id_in_bandwidth");
-```
-
-##### Get information about your account (GET /users/:user_id/account)
-
-Get information about your account: balance, accountType.
-
-```php
-$response = $account->show($options);
-```
-
-##### Get a list of the transactions made to your account (GET /users/:user_id/account/transactions)
-
-Get the transactions from the user's Account..
-
-```php
-$response = $account->transactions($options);
-```
-
 ### Find and Buy available numbers api
 
 The Available Numbers resource lets you search for numbers that are available for use with your application.
@@ -207,46 +179,6 @@ Search and order available toll free numbers
 $response = $availableNumbers->createTollFree($options);
 ```
 
-### message resources api
-
-Lets you send SMS text messages and view messages that were previously sent or received
-
-The following arguments are required:
-
- * __user_id__: user_id of account which is doing API call
-
-```php
-$messages = $client->messages("u-account_id_in_bandwidth");
-```
-
-##### Get a list of previous messages that were sent or received (GET /users/:user_id/messages)
-
-Get a list of previous messages that were sent or received
-
-```php
-$response = $messages->fetch($options);
-```
-
-##### Send text messages (POST /users/:user_id/messages)
-
-Send text messages
-
-```php
-$response = $messages->create($options);
-```
-
-##### Read a message (GET /users/:user_id/messages/:id)
-
-Get information about a message that was sent or received
-
-The following arguments are required:
-
- * __id__: message id
-
-```php
-$response = $messages->show("111111", $options);
-```
-
 ### Manipulation calls api
 
 The Calls resource lets you make phone calls and view information about previous inbound and outbound calls.
@@ -257,6 +189,14 @@ The following arguments are required:
 
 ```php
 $calls = $client->calls("u-account_id_in_bandwidth");
+```
+
+##### Gets a list of active and historic calls you made or received (GET /users/:user_id/calls)
+
+Gets a list of active and historic calls you made or received
+
+```php
+$response = $calls->fetch($options);
 ```
 
 ##### Makes a phone call. (POST /users/:user_id/calls)
@@ -270,75 +210,6 @@ The following arguments are required:
 
 ```php
 $response = $calls->create("4081112244", "6501112222", $options);
-```
-
-##### Play an audio or speak a sentence in a call (POST /users/:user_id/calls/:call_id/audio)
-
-Play an audio or speak a sentence in a call
-
-The following arguments are required:
-
- * __call_id__: call id
-
-```php
-$response = $calls->audio("111111", $options);
-```
-
-##### Gather the DTMF digits pressed (POST /users/:user_id/calls/:call_id/gather)
-
-Gather the DTMF digits pressed by the user.
-
-The following arguments are required:
-
- * __call_id__: call id
-
-```php
-$response = $calls->createGather("111111", $options);
-```
-
-##### Get the gather DTMF parameters and results (GET /users/:user_id/calls/:call_id/gather/:gather_id)
-
-Get the gather DTMF parameters and results
-
-The following arguments are required:
-
- * __call_id__: call id
- * __gather_id__: gather id
-
-```php
-$response = $calls->gather("111111", "222222", $options);
-```
-
-##### Gets a list of active and historic calls you made or received (GET /users/:user_id/calls)
-
-Gets a list of active and historic calls you made or received
-
-```php
-$response = $calls->fetch($options);
-```
-
-##### Gets information about an active or completed call (GET /users/:user_id/calls/:call_id)
-
-Gets information about an active or completed call. No query parameters are supported
-
-The following arguments are required:
-
- * __call_id__: call id
-
-```php
-$response = $calls->show("111111", $options);
-```
-
-##### Changes properties of an active phone call (POST /users/:user_id/calls/:call_id)
-
-Changes properties of an active phone call
-
-The following arguments are required:
-
- * __call_id__: call id
-
-```php
-$response = $calls->update("111111", $options);
 ```
 
 ##### Send DTMF (POST /users/:user_id/calls/:call_id/dtmf)
@@ -365,6 +236,18 @@ The following arguments are required:
 $response = $calls->recordings("111111", $options);
 ```
 
+##### Gather the DTMF digits pressed (POST /users/:user_id/calls/:call_id/gather)
+
+Gather the DTMF digits pressed by the user.
+
+The following arguments are required:
+
+ * __call_id__: call id
+
+```php
+$response = $calls->createGather("111111", $options);
+```
+
 ##### Update the gather DTMF (Stop Gather) (POST /users/:user_id/calls/:call_id/gather/:gather_id)
 
 Update the gather DTMF (Stop Gather)
@@ -378,71 +261,53 @@ The following arguments are required:
 $response = $calls->updateGather("111111", "222222", $options);
 ```
 
-### This resource provides a CNAM number info api
+##### Gets information about an active or completed call (GET /users/:user_id/calls/:call_id)
 
-CNAM is an acronym which stands for Caller ID Name. CNAM can be used to display the calling party's name alongside the phone number, to help users easily identify a caller. CNAM API allows the user to get the CNAM information of a particular number
-
-The following arguments are required:
-
- * __number__: phone number to get the info
-
-```php
-$numberInfo = $client->numberInfo("14084442222 //or 408444222 is ok");
-```
-
-##### Get the CNAM of the number (GET /phoneNumbers/numberInfo/:number)
-
-Get the CNAM of the number
-
-```php
-$response = $numberInfo->show($options);
-```
-
-### Bridges resource api
-
-Bridges resource. Bridge two calls allowing two way audio between them.
+Gets information about an active or completed call. No query parameters are supported
 
 The following arguments are required:
 
- * __user_id__: user_id of account which is doing API call
+ * __call_id__: call id
 
 ```php
-$bridges = $client->bridges("u-account_id_in_bandwidth");
+$response = $calls->show("111111", $options);
 ```
 
-##### Create a bridge (POST /users/:user_id/bridges)
+##### Changes properties of an active phone call (POST /users/:user_id/calls/:call_id)
 
-Create a bridge
+Changes properties of an active phone call
 
 The following arguments are required:
 
+ * __call_id__: call id
 
 ```php
-$response = $bridges->create("true", "c_bandwidth_call_id", $options);
+$response = $calls->update("111111", $options);
 ```
 
-##### Play an audio or speak a sentence in a bridge (POST /users/:user_id/bridges/:bridge_id/audio)
+##### Play an audio or speak a sentence in a call (POST /users/:user_id/calls/:call_id/audio)
 
-Play an audio or speak a sentence in a bridge
+Play an audio or speak a sentence in a call
 
 The following arguments are required:
 
- * __bridge_id__: Bridge ID
+ * __call_id__: call id
 
 ```php
-$response = $bridges->audio("b_bridge_id_in_bandwidth", $options);
+$response = $calls->audio("111111", $options);
 ```
 
-##### Get the list of calls that are on the bridge (GET /users/:user_id/bridges/:bridge_id/calls)
+##### Get the gather DTMF parameters and results (GET /users/:user_id/calls/:call_id/gather/:gather_id)
 
-Get the list of calls that are on the bridge
+Get the gather DTMF parameters and results
 
 The following arguments are required:
 
- * __bridge_id__: Bridge ID
+ * __call_id__: call id
+ * __gather_id__: gather id
 
 ```php
-$response = $bridges->listCall("b_bridge_id_in_bandwidth", $options);
+$response = $calls->gather("111111", "222222", $options);
 ```
 
 ### The Phone Numbers resource lets you get phone numbers for use with your programs and manage numbers you already have api
@@ -549,7 +414,7 @@ The following arguments are required:
 $response = $conferences->create("+14081112323", $options);
 ```
 
-##### Add a member to a conference. (POST /users/:user_id/conferences/:conference_id)
+##### Add a member to a conference. (POST /users/:user_id/conferences/:conference_id/members)
 
 Add a member to a conference.
 
@@ -559,7 +424,7 @@ The following arguments are required:
  * __callId__: Call ID to join into conference
 
 ```php
-$response = $conferences->createMember("c_conference_id", "call_id_in_bandwidth", $options);
+$response = $conferences->createMember("conf-2jir46wjc5puqpiwthqma5y", "c-m2vrf4lpryjlvwgvsnf6ery", $options);
 ```
 
 ##### Play an audio/speak a sentence in the conference. (POST /users/:user_id/conferences/:conference_id/audio)
@@ -571,7 +436,7 @@ The following arguments are required:
  * __conference_id__: Conference ID
 
 ```php
-$response = $conferences->audio("c_conference_id", $options);
+$response = $conferences->audio("conf-2jir46wjc5puqpiwthqma5y", $options);
 ```
 
 ### Retrieve call recordings, filtering by Id, user and/or calls api
@@ -600,6 +465,141 @@ List a user's call recordings
 
 ```php
 $response = $recordings->fetch($options);
+```
+
+### account information api
+
+Retrieve current balance, transaction list, account type and all elements related to your platform account.
+
+The following arguments are required:
+
+ * __user_id__: user_id of account which is doing API call
+
+```php
+$account = $client->account("u-account_id_in_bandwidth");
+```
+
+##### Get information about your account (GET /users/:user_id/account)
+
+Get information about your account: balance, accountType.
+
+```php
+$response = $account->show($options);
+```
+
+##### Get a list of the transactions made to your account (GET /users/:user_id/account/transactions)
+
+Get the transactions from the user's Account..
+
+```php
+$response = $account->transactions($options);
+```
+
+### message resources api
+
+Lets you send SMS text messages and view messages that were previously sent or received
+
+The following arguments are required:
+
+ * __user_id__: user_id of account which is doing API call
+
+```php
+$messages = $client->messages("u-account_id_in_bandwidth");
+```
+
+##### Get a list of previous messages that were sent or received (GET /users/:user_id/messages)
+
+Get a list of previous messages that were sent or received
+
+```php
+$response = $messages->fetch($options);
+```
+
+##### Send text messages (POST /users/:user_id/messages)
+
+Send text messages
+
+```php
+$response = $messages->create($options);
+```
+
+##### Read a message (GET /users/:user_id/messages/:id)
+
+Get information about a message that was sent or received
+
+The following arguments are required:
+
+ * __id__: message id
+
+```php
+$response = $messages->show("111111", $options);
+```
+
+### This resource provides a CNAM number info api
+
+CNAM is an acronym which stands for Caller ID Name. CNAM can be used to display the calling party's name alongside the phone number, to help users easily identify a caller. CNAM API allows the user to get the CNAM information of a particular number
+
+The following arguments are required:
+
+ * __number__: phone number to get the info
+
+```php
+$numberInfo = $client->numberInfo("14084442222 //or 408444222 is ok");
+```
+
+##### Get the CNAM of the number (GET /phoneNumbers/numberInfo/:number)
+
+Get the CNAM of the number
+
+```php
+$response = $numberInfo->show($options);
+```
+
+### Bridges resource api
+
+Bridges resource. Bridge two calls allowing two way audio between them.
+
+The following arguments are required:
+
+ * __user_id__: user_id of account which is doing API call
+
+```php
+$bridges = $client->bridges("u-account_id_in_bandwidth");
+```
+
+##### Create a bridge (POST /users/:user_id/bridges)
+
+Create a bridge
+
+The following arguments are required:
+
+
+```php
+$response = $bridges->create("true", "c-m2vrf4lpryjlvwgvsnf6ery", $options);
+```
+
+##### Play an audio or speak a sentence in a bridge (POST /users/:user_id/bridges/:bridge_id/audio)
+
+Play an audio or speak a sentence in a bridge
+
+The following arguments are required:
+
+ * __bridge_id__: Bridge ID
+
+```php
+$response = $bridges->audio("b_bridge_id_in_bandwidth", $options);
+```
+
+##### Get the list of calls that are on the bridge (GET /users/:user_id/bridges/:bridge_id/calls)
+
+Get the list of calls that are on the bridge
+
+The following arguments are required:
+
+ * __bridge_id__: Bridge ID
+
+```php
+$response = $bridges->listCall("b_bridge_id_in_bandwidth", $options);
 ```
 
 ### User Errors api
