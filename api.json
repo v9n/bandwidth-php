@@ -329,7 +329,7 @@
       },
 
       "createMember" : {
-        "path": "/users/:user_id/conferences/:conference_id",
+        "path": "/users/:user_id/conferences/:conference_id/members",
         "method": "post",
         "params": [
           {
