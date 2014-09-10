@@ -68,4 +68,20 @@ class Bridges
         return $response;
     }
 
+    /**
+     * Change calls in a bridge and bridge/unbridge the audio
+     *
+     * '/users/:user_id/bridges/:bridge_id' POST
+     *
+     * @param $bridge_id Bridge ID
+     */
+    public function update($bridge_id, array $options = array())
+    {
+        $body = (isset($options['body']) ? $options['body'] : array());
+
+        $response = $this->client->post('/users/'.rawurlencode($this->user_id).'/bridges/'.rawurlencode($bridge_id).'', $body, $options);
+
+        return $response;
+    }
+
 }
