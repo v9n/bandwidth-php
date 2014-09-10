@@ -391,6 +391,18 @@
             "url_use": true
           }
         ]
+      },
+
+      "update": {
+        "path": "/users/:user_id/bridges/:bridge_id",
+        "method": "post",
+        "params": [
+          {
+            "name": "bridge_id",
+            "required": true,
+            "url_use": true
+          }
+        ]
       }
     },
 

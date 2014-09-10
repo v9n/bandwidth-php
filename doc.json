@@ -454,6 +454,18 @@
           "value": "b_bridge_id_in_bandwidth"
         }
       }
+    },
+
+    "update": {
+      "title": "Change calls in a bridge and bridge/unbridge the audio",
+      "desc": "Change calls in a bridge and bridge/unbridge the audio",
+
+      "params": {
+        "bridge_id": {
+          "desc": "Bridge ID",
+          "value": "b_bridge_id_in_bandwidth"
+        }
+      }
     }
   
   },
